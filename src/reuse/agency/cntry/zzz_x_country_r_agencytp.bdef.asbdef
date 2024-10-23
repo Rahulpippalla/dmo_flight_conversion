@@ -1,0 +1,20 @@
+extension using interface zi_agencytp
+implementation in class zzz_bp_x_cntry_r_agencytp unique;
+
+extend behavior for ZAgency
+{
+
+  validation ZvalidateDiallingCode on save { field PhoneNumber; }
+
+  determination ZdetermineCountryCode on modify { field PhoneNumber; }
+
+  determination ZdetermineDiallingCode on modify { field CountryCode; }
+
+  extend draft determine action Prepare
+  {
+    validation ZvalidateDiallingCode;
+  }
+
+  factory action ZcreateFromTemplate [1];
+
+}

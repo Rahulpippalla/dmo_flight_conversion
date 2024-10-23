@@ -1,0 +1,17 @@
+@EndUserText.label: 'Service Definition for Managing Travels'
+define service ZTRAVEL_U {
+  expose ZC_Travel_U as Travel;
+  expose ZC_Booking_U as Booking;
+  expose ZC_BookingSupplement_U as BookingSupplement;
+  expose ZI_Supplement as Supplement;
+  expose ZI_SupplementText as SupplementText;
+  expose ZI_Customer as Passenger;
+  expose ZI_Agency as TravelAgency;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+  expose ZI_Carrier as Airline;
+  expose ZI_Connection as FlightConnection;
+  expose ZI_Flight as Flight;
+  expose ZI_Airport as Airport;
+  expose ZI_Travel_Status_VH as TravelStatusVH;
+}

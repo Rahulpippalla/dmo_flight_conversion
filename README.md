@@ -22,7 +22,7 @@ Make sure to fulfill the following requirements:
 SAP uses a reserved namespace for the demo objects. 
 
 To enable the namespace in your customer system, follow the steps described in [Setting Up a Namespace for Development](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/bdddbe08ac5c11d2850e0000e8a57770.html). For step 8, enter the following values: 
-* Namespace: `/DMO/`
+* Namespace: `Z`
 * Namespace Role : `C`
 * Repair license: `32869948212895959389`
 * Short Text: Enter a suitable description for the namespace  , for example `SAP Demo Scenarios`.
@@ -30,10 +30,10 @@ To enable the namespace in your customer system, follow the steps described in [
 
 Choose `save` and write the changes to a transport. 
 
-To be able to import /DMO/ objects into your system, set the system change option. Proceed as follows: 
+To be able to import Z objects into your system, set the system change option. Proceed as follows: 
 1.	Go to  <em>Transport Organizer Tools</em> (transaction `SE03`) 
 2.	Go to <em>Administration</em> and start the program `Set System Change Option`.
-3.	In the table <em>Namespace/Name Range</em> table search for the <em>/DMO/</em> namespace. 
+3.	In the table <em>Namespace/Name Range</em> table search for the <em>Z</em> namespace. 
 4.	In the column <em>Modifiable</em> change the entry to `Modifiable`. 
 5.	Save the settings.
 
@@ -50,27 +50,27 @@ The current reference scenario contains behavior definition extensions. To be ab
 
 ## Download
 Use the <em>zabapgit_standalone</em> program to install the <em>ABAP Flight Reference Scenario</em> by executing the following steps:
-1.	In your ABAP project, create the package `/DMO/FLIGHT` as target package for the demo content. Use `HOME` as software component. Assign it to a new transport request that you only use for the demo content import. 
+1.	In your ABAP project, create the package `ZFLIGHT` as target package for the demo content. Use `HOME` as software component. Assign it to a new transport request that you only use for the demo content import. 
 2.	In your ABAP project, run the program `zabapgit_standalone`.  
 3.	Choose `New Online` and enter the following URL of this repository  `https://github.com/SAP/abap-platform-refscen-flight.git`. 
-4.	In the package field, enter the newly created package `/DMO/FLIGHT`. In the branch field, select the branch `ABAP-platform-2022`.
+4.	In the package field, enter the newly created package `ZFLIGHT`. In the branch field, select the branch `ABAP-platform-2022`.
 5.	Leave the other fields unchanged and choose `Create Online Repo`.
 6. Enter your credentials for abapgit. You will see the available artifacts to import into your ABAP system. 
 7.	Choose `Pull` and confirm every subpackage on your transport request. 
-8.	Select the package `/DMO/FLIGHT` to be overwritten with the demo content. In some cases, the shown ZABAPGIT dialogue offers you to delete the /DMO/ namespace locally. Do not delete the /DMO/ namespace locally because the pull operation will fail if no suiting namespace exists in your package.
-9. You will get an information screen telling you to only make repairs when they are urgent, which you can confirm. You can also confirm the dialogue telling you that objects can only be created in the package of the namespace /DMO/.  
+8.	Select the package `ZFLIGHT` to be overwritten with the demo content. In some cases, the shown ZABAPGIT dialogue offers you to delete the Z namespace locally. Do not delete the Z namespace locally because the pull operation will fail if no suiting namespace exists in your package.
+9. You will get an information screen telling you to only make repairs when they are urgent, which you can confirm. You can also confirm the dialogue telling you that objects can only be created in the package of the namespace Z.  
 10. In the following screen, select all inactive objects and confirm the activation.
 11.	Once the cloning has finished, refresh your project tree.
 
 
 As a result of the installation procedure above, the ABAP system creates an inactive version of all artifacts from the demo content and adds the following sub packages to the target package: 
-* `/DMO/FLIGHT_LEGACY`
-* `/DMO/FLIGHT_REUSE` The reuse package contains a package for the supplement business object `/DMO/FLIGHT_REUSE_SUPPLEMENT`, which is reused in the other development scenarios. The reuse package also contains the package `/DMO/FLIGHT_REUSE_CARRIER`, which contains a mulit-inline-edit scenario for maintaining carrier data (see [Developing Transactional Apps with Multi-Inline-Edit Capabilities](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/f713ec52bcb8405ca9262918cffa5d25.html?version=202210.000)).
-Lastly, the reuse package contains the package `/DMO/FLIGHT_REUSE_AGENCY` which incorporates a business object for administering agency master data, including the possibility of maintaining Large Objects. The business object is extensibility-enabled as described in the RAP extensibility guide (see [Extend](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/492d88ed89f640e5b18dd1c57f6817b1.html?version=202210.000)). This extensibility guide also contains examples on how to develop extensions for the business object. These code examples are contained in sub packages of the `/DMO/FLIGHT_REUSE_AGENCY` package.
-* `/DMO/FLIGHT_READONLY` - represents a read-only list reporting app (see [Developing Read-Only List Reporting Apps](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/504035c0850f44f787f5b81e35791d10.html?version=202210.000)).
-* `/DMO/FLIGHT_MANAGED` - represents the transactional app with implementation type <em>managed</em> (see [Developing Managed Transactional Apps](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/b5bba99612cf4637a8b72a3fc82c22d9.html?version=202210.000)).
-* `/DMO/FLIGHT_UNMANAGED` - represents the transactional app with implementation type <em>unmanaged</em> (see [Developing Unmanaged Transactional Apps](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/f6cb3e3402694f5585068e5e5161a7c1.html?version=202210.000)).
-* `/DMO/FLIGHT_DRAFT` - represents the transactional app with <em>draft</em> (see [Developing Transactional Apps with Draft Capabilities](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/71ba2bec1d0d4f22bc344bba6b569f2e.html?version=202210.000)).
+* `ZFLIGHT_LEGACY`
+* `ZFLIGHT_REUSE` The reuse package contains a package for the supplement business object `ZFLIGHT_REUSE_SUPPLEMENT`, which is reused in the other development scenarios. The reuse package also contains the package `ZFLIGHT_REUSE_CARRIER`, which contains a mulit-inline-edit scenario for maintaining carrier data (see [Developing Transactional Apps with Multi-Inline-Edit Capabilities](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/f713ec52bcb8405ca9262918cffa5d25.html?version=202210.000)).
+Lastly, the reuse package contains the package `ZFLIGHT_REUSE_AGENCY` which incorporates a business object for administering agency master data, including the possibility of maintaining Large Objects. The business object is extensibility-enabled as described in the RAP extensibility guide (see [Extend](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/492d88ed89f640e5b18dd1c57f6817b1.html?version=202210.000)). This extensibility guide also contains examples on how to develop extensions for the business object. These code examples are contained in sub packages of the `ZFLIGHT_REUSE_AGENCY` package.
+* `ZFLIGHT_READONLY` - represents a read-only list reporting app (see [Developing Read-Only List Reporting Apps](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/504035c0850f44f787f5b81e35791d10.html?version=202210.000)).
+* `ZFLIGHT_MANAGED` - represents the transactional app with implementation type <em>managed</em> (see [Developing Managed Transactional Apps](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/b5bba99612cf4637a8b72a3fc82c22d9.html?version=202210.000)).
+* `ZFLIGHT_UNMANAGED` - represents the transactional app with implementation type <em>unmanaged</em> (see [Developing Unmanaged Transactional Apps](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/f6cb3e3402694f5585068e5e5161a7c1.html?version=202210.000)).
+* `ZFLIGHT_DRAFT` - represents the transactional app with <em>draft</em> (see [Developing Transactional Apps with Draft Capabilities](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/71ba2bec1d0d4f22bc344bba6b569f2e.html?version=202210.000)).
 
 NOTE: The service bindings of the development scenarios are imported with the warning: `To enable activation of local service endpoint, generate service artifacts`. 
 
@@ -81,12 +81,12 @@ To generate service artifacts for the service bindings:
 1. In each service binding, choose the button `Publish`.
 
 To fill the demo database tables with sample business data: 
-1. Expand the package structure in the Project Explorer `/DMO/FLIGHT_LEGACY` > `Source Code Library` > `Classes`.
-2. Select the data generator class `/DMO/CL_FLIGHT_DATA_GENERATOR` and press `F9` (Run as Console Application). 
+1. Expand the package structure in the Project Explorer `ZFLIGHT_LEGACY` > `Source Code Library` > `Classes`.
+2. Select the data generator class `ZCL_FLIGHT_DATA_GENERATOR` and press `F9` (Run as Console Application). 
 
 NOTE: In case the activation via the button in the service bindings is not possible, you can use Gateway tools to activate the service, see [here](https://help.sap.com/docs/ABAP_PLATFORM_NEW/fc4c71aa50014fd1b43721701471913d/b58a3c27df4e406f9335d4b346f6be04.html?version=202210.LATEST#%EE%81%B0-service-transport2).  
 
-NOTE: The namespace /DMO/ is reserved for the demo content. Apart from the downloaded demo content, do not use the namespace /DMO/ and do not create any development objects in the downloaded packages. You can access the development objects in /DMO/ from your own namespace.
+NOTE: The namespace Z is reserved for the demo content. Apart from the downloaded demo content, do not use the namespace Z and do not create any development objects in the downloaded packages. You can access the development objects in Z from your own namespace.
 
 
 ## How to obtain support

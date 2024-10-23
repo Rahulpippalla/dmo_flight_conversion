@@ -1,0 +1,18 @@
+@EndUserText.label: 'Travel Draft Scenario(active projection)'
+define service ZUI_TRAVEL_A_D {
+  expose ZC_Travel_A_D as Travel;
+  expose ZC_Booking_A_D as Booking;
+  expose ZC_BookingSupplement_A_D as BookingSupplement;
+  expose ZI_Supplement as Supplement;
+  expose ZI_SupplementText as SupplementText;
+  expose ZI_Customer as Passenger;
+  expose ZI_Agency as TravelAgency;
+  expose ZI_Carrier as Airline;
+  expose ZI_Connection as FlightConnection;
+  expose ZI_Flight as Flight;
+  expose ZI_Airport as Airport;
+  expose ZI_Overall_Status_VH as OverallStatusVH;
+  expose ZI_Booking_Status_VH as BookingStatusVH;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+}

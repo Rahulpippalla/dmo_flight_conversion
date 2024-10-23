@@ -1,0 +1,18 @@
+@EndUserText.label: 'Service definition for managing travels'
+define service ZUI_TRAVEL_Processor_M {
+  expose ZC_Travel_Processor_M as Travel;
+  expose ZC_Booking_Processor_M as Booking;
+  expose ZC_BookSuppl_Processor_M as BookingSupplement;
+  expose ZI_Supplement as Supplement;
+  expose ZI_SupplementText as SupplementText;
+  expose ZI_Customer as Passenger;
+  expose ZI_Agency as TravelAgency;
+  expose ZI_Carrier as Airline;
+  expose ZI_Connection as FlightConnection;
+  expose ZI_Flight as Flight;
+  expose ZI_Airport as Airport;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+  expose ZI_Overall_Status_VH as OverallStatusVH;
+  expose ZI_Booking_Status_VH as BookingStatusVH;
+}

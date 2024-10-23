@@ -1,0 +1,5 @@
+@EndUserText.label: 'Agency'
+@AbapCatalog.extensibility.extensible: true
+define service ZUI_AGENCY {
+  expose ZC_AgencyTP as Agency;
+}

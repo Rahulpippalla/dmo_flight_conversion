@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Managing Flights'
+define service ZFLIGHT_R {
+  expose ZI_Connection_R as Connection;
+  expose ZI_Flight_R as Flight;
+  expose ZI_Carrier as Airline;
+  expose ZI_Airport as Airport;
+}

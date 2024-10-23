@@ -1,0 +1,4 @@
+@EndUserText.label: 'Supplement Maintenance'
+define service ZUI_Supplement {
+  expose ZC_Supplement as Supplement;
+}
