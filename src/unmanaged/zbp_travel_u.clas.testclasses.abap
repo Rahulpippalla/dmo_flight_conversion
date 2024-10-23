@@ -212,8 +212,8 @@ CLASS ltcl_handler IMPLEMENTATION.
 
     DATA(fm_update_double) = fm_test_environment->get_double( fm_update ).
 
-    DATA(travel)  = VALUE zs_travel_in(  travel_id = travel_id  agency_id = agency_id  customer_id = customer_id ).
-    DATA(travelx) = VALUE zs_travel_inx( travel_id = travel_id  agency_id = abap_true  customer_id = abap_true   ).
+    DATA(travel)  = VALUE zstravel_in(  travel_id = travel_id  agency_id = agency_id  customer_id = customer_id ).
+    DATA(travelx) = VALUE zstravel_inx( travel_id = travel_id  agency_id = abap_true  customer_id = abap_true   ).
 
     DATA(fm_update_double_input)  = fm_update_double->create_input_configuration(
                                       )->set_importing_parameter(
@@ -595,19 +595,19 @@ CLASS ltcl_handler IMPLEMENTATION.
     DATA:
       entities_cba        TYPE TABLE FOR CREATE zi_travel_u\\travel\_booking,
       mapped_line_booking LIKE LINE OF mapped-booking,
-      travel              TYPE zs_travel_in,
-      travelx             TYPE zs_travel_inx,
+      travel              TYPE zstravel_in,
+      travelx             TYPE zstravel_inx,
       old_booking         TYPE zbooking,
-      new_booking         TYPE zs_booking_in,
-      new_bookingx        TYPE zs_booking_inx,
+      new_booking         TYPE zsbooking_in,
+      new_bookingx        TYPE zsbooking_intx,
       old_bookings        TYPE zt_booking,
       new_bookings        TYPE zt_booking_in,
       new_bookingsx       TYPE zt_booking_inx.
 
-    travel  = VALUE zs_travel_in(  travel_id = travel_id ).
-    travelx = VALUE zs_travel_inx( travel_id = travel_id ).
+    travel  = VALUE zstravel_in(  travel_id = travel_id ).
+    travelx = VALUE zstravel_inx( travel_id = travel_id ).
 
-    new_booking  = VALUE zs_booking_in(
+    new_booking  = VALUE zsbooking_in(
                        travel_id   = travel_id
                        booking_id  = booking_id  + 1
                        customer_id = customer_id + 1
@@ -623,7 +623,7 @@ CLASS ltcl_handler IMPLEMENTATION.
                      ).
     APPEND old_booking  TO old_bookings.
 
-    new_bookingx = VALUE zs_booking_inx(
+    new_bookingx = VALUE zsbooking_intx(
                        booking_id  = booking_id
                        action_code = zif_flight_legacy=>action_code-create
                      ).
@@ -729,7 +729,7 @@ CLASS ltcl_handler IMPLEMENTATION.
 
     fm_read_double->configure_call( )->ignore_all_parameters( )->then_set_output( fm_read_double_output ).
 
-    DATA(new_booking) = VALUE zs_booking_in(
+    DATA(new_booking) = VALUE zsbooking_in(
                             travel_id   = travel_id
                             booking_id  = booking_id  + 1
                             customer_id = customer_id + 1

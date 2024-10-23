@@ -94,17 +94,17 @@ CLASS lcl_booking_supplement_buffer DEFINITION FINAL CREATE PRIVATE FRIENDS ltc_
                     EXPORTING et_messages           TYPE zif_flight_legacy=>tt_if_t100_message.
 
     METHODS _check IMPORTING is_booking_supplement  TYPE zbook_suppl
-                             is_booking_supplementx TYPE zs_booking_supplementx OPTIONAL
+                             is_booking_supplementx TYPE zsbooking_supplementx OPTIONAL
                              iv_change_mode         TYPE zcl_flight_legacy=>ty_change_mode
                    CHANGING  ct_messages            TYPE zif_flight_legacy=>tt_if_t100_message
                    RETURNING VALUE(rv_is_valid)     TYPE abap_bool.
     METHODS _check_supplement IMPORTING is_booking_supplement  TYPE zbook_suppl
-                                        is_booking_supplementx TYPE zs_booking_supplementx OPTIONAL
+                                        is_booking_supplementx TYPE zsbooking_supplementx OPTIONAL
                                         iv_change_mode         TYPE zcl_flight_legacy=>ty_change_mode
                               CHANGING  ct_messages            TYPE zif_flight_legacy=>tt_if_t100_message
                               RETURNING VALUE(rv_is_valid)     TYPE abap_bool.
     METHODS _check_currency_code IMPORTING is_booking_supplement  TYPE zbook_suppl
-                                           is_booking_supplementx TYPE zs_booking_supplementx OPTIONAL
+                                           is_booking_supplementx TYPE zsbooking_supplementx OPTIONAL
                                            iv_change_mode         TYPE zcl_flight_legacy=>ty_change_mode
                                  CHANGING  ct_messages            TYPE zif_flight_legacy=>tt_if_t100_message
                                  RETURNING VALUE(rv_is_valid)     TYPE abap_bool.
@@ -717,27 +717,27 @@ CLASS lcl_booking_buffer DEFINITION FINAL CREATE PRIVATE FRIENDS ltc_booking.
                     EXPORTING et_messages        TYPE zif_flight_legacy=>tt_if_t100_message.
 
     METHODS _check IMPORTING is_booking         TYPE zbooking
-                             is_bookingx        TYPE zs_bookingx OPTIONAL
+                             is_bookingx        TYPE zsbookingx OPTIONAL
                              iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                    CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                    RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_booking_date IMPORTING is_booking         TYPE zbooking
-                                          is_bookingx        TYPE zs_bookingx OPTIONAL
+                                          is_bookingx        TYPE zsbookingx OPTIONAL
                                           iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                                 CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                                 RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_customer IMPORTING is_booking         TYPE zbooking
-                                      is_bookingx        TYPE zs_bookingx OPTIONAL
+                                      is_bookingx        TYPE zsbookingx OPTIONAL
                                       iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                             CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                             RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_flight IMPORTING is_booking         TYPE zbooking
-                                    is_bookingx        TYPE zs_bookingx OPTIONAL
+                                    is_bookingx        TYPE zsbookingx OPTIONAL
                                     iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                           CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                           RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_currency_code IMPORTING is_booking         TYPE zbooking
-                                           is_bookingx        TYPE zs_bookingx OPTIONAL
+                                           is_bookingx        TYPE zsbookingx OPTIONAL
                                            iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                                  CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                                  RETURNING VALUE(rv_is_valid) TYPE abap_bool.

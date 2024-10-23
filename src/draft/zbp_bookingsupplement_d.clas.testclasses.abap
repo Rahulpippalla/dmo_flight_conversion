@@ -76,7 +76,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
     cds_test_environment = cl_cds_test_environment=>create_for_multiple_cds(
                                VALUE #(
                                    ( i_for_entity = 'ZR_Travel_D'            )
-                                   ( i_for_entity = 'ZR_Booking_D'           )
+                                   ( i_for_entity = 'ZRBooking_D'           )
                                    ( i_for_entity = 'ZR_BookingSupplement_D' )
                                  )
                              ).
@@ -93,8 +93,8 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
     sql_test_environment->clear_doubles( ).
 
     DATA:
-      travel_mock_data  TYPE STANDARD TABLE OF za_travel_d,
-      booking_mock_data TYPE STANDARD TABLE OF za_booking_d.
+      travel_mock_data  TYPE STANDARD TABLE OF zatravel_d,
+      booking_mock_data TYPE STANDARD TABLE OF zabooking_d.
 
     travel_mock_data = VALUE #(
         ( travel_uuid = travel_uuid1  currency_code = c_currency )
@@ -121,7 +121,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
 
   METHOD setBookSupplNumber_idempotence.
     DATA:
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test  TYPE STANDARD TABLE OF ZR_BookingSupplement_D WITH KEY bookinguuid,
       exp_bookingsupplements      TYPE TABLE FOR READ RESULT ZR_Travel_D\\BookingSupplement,
       reported                    TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -157,7 +157,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
 
   METHOD setbooksupplnumber_newbsids.
     DATA:
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test  TYPE STANDARD TABLE OF ZR_BookingSupplement_D WITH KEY bookinguuid,
       exp_bookingsupplements      TYPE TABLE FOR READ RESULT ZR_Travel_D\\BookingSupplement,
       reported                    TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -207,7 +207,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
 
   METHOD setBookSupplNumber_mixed.
     DATA:
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test  TYPE STANDARD TABLE OF ZR_BookingSupplement_D WITH KEY bookinguuid,
       exp_bookingsupplements      TYPE TABLE FOR READ RESULT ZR_Travel_D\\BookingSupplement,
       reported                    TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -264,7 +264,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
       c_supplement_price TYPE zsupplement_price VALUE '10'.
 
     DATA:
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test  TYPE STANDARD TABLE OF ZR_BookingSupplement_D WITH KEY bookinguuid,
       reported                    TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
 
@@ -310,7 +310,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
 
     DATA:
       supplement_mock_data TYPE STANDARD TABLE OF zsupplement,
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test   TYPE TABLE FOR VALIDATION ZR_Travel_D\\BookingSupplement~validateSupplement,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -354,7 +354,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
 
     DATA:
       supplement_mock_data TYPE STANDARD TABLE OF zsupplement,
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test   TYPE TABLE FOR VALIDATION ZR_Travel_D\\BookingSupplement~validateSupplement,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -403,7 +403,7 @@ CLASS ltc_BookingSupplement IMPLEMENTATION.
 
     DATA:
       supplement_mock_data TYPE STANDARD TABLE OF zsupplement,
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       bookingsupplements_to_test   TYPE TABLE FOR VALIDATION ZR_Travel_D\\BookingSupplement~validateSupplement,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.

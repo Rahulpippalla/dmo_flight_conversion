@@ -5,7 +5,7 @@ with draft;
 
 define behavior for ZI_CarriersLockSingleton_S alias CarriersLockSingleton
 with unmanaged save
-draft table zd_carr_lock
+draft table zdcarr_lock
 lock master
 total etag LastChangedAtMax
 authorization master ( global )
@@ -28,7 +28,7 @@ authorization master ( global )
 
 define behavior for ZI_Carrier_S alias Carrier
 persistent table zcarrier
-draft table zd_carrier
+draft table ZDCARRIER
 lock dependent by _CarrierSingleton
 authorization dependent by _CarrierSingleton
 etag master LocalLastChangedAt

@@ -272,7 +272,7 @@ CLASS lhc_travel IMPLEMENTATION.
     CHECK travels IS NOT INITIAL.
 
     "Get max travelID
-    SELECT SINGLE FROM za_travel_d FIELDS MAX( travel_id ) INTO @DATA(max_travelid).
+    SELECT SINGLE FROM zatravel_d FIELDS MAX( travel_id ) INTO @DATA(max_travelid).
 
     "update involved instances
     MODIFY ENTITIES OF ZR_Travel_D IN LOCAL MODE
@@ -700,7 +700,7 @@ CLASS lhc_travel IMPLEMENTATION.
 
     "Select country_code and agency of corresponding persistent travel instance
     "authorization  only checked against instance that have active persistence
-    SELECT FROM za_travel_d AS travel
+    SELECT FROM zatravel_d AS travel
       INNER JOIN zagency    AS agency ON travel~agency_id = agency~agency_id
       FIELDS travel~travel_uuid , travel~agency_id, agency~country_code
       FOR ALL ENTRIES IN @travels

@@ -1,7 +1,7 @@
 @EndUserText.label: 'Booking Interface Projection View '
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 define view entity ZI_Booking_D
-  as projection on ZR_Booking_D
+  as projection on ZRBooking_D
 {
   key BookingUUID,
       TravelUUID,

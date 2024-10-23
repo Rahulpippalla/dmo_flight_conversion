@@ -1,4 +1,4 @@
-"! @testing BDEF:ZR_Booking_D
+"! @testing BDEF:ZRBooking_D
 CLASS ltc_booking DEFINITION FINAL FOR TESTING
   DURATION SHORT
   RISK LEVEL HARMLESS.
@@ -91,7 +91,7 @@ CLASS ltc_booking IMPLEMENTATION.
     cds_test_environment = cl_cds_test_environment=>create_for_multiple_cds(
                                VALUE #(
                                    ( i_for_entity = 'ZR_Travel_D'            )
-                                   ( i_for_entity = 'ZR_Booking_D'           )
+                                   ( i_for_entity = 'ZRBooking_D'           )
                                    ( i_for_entity = 'ZR_BookingSupplement_D' )
                                  )
                              ).
@@ -109,7 +109,7 @@ CLASS ltc_booking IMPLEMENTATION.
     sql_test_environment->clear_doubles( ).
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF za_travel_d.
+      travel_mock_data TYPE STANDARD TABLE OF zatravel_d.
 
     travel_mock_data = VALUE #(
         ( travel_uuid = travel_uuid1  currency_code = c_currency )
@@ -130,8 +130,8 @@ CLASS ltc_booking IMPLEMENTATION.
 
   METHOD setbookingnumber_idempotence.
     DATA:
-      booking_mock_data TYPE STANDARD TABLE OF za_booking_d,
-      bookings_to_test  TYPE STANDARD TABLE OF ZR_Booking_D WITH KEY bookinguuid,
+      booking_mock_data TYPE STANDARD TABLE OF zabooking_d,
+      bookings_to_test  TYPE STANDARD TABLE OF ZRBooking_D WITH KEY bookinguuid,
       exp_bookings      TYPE TABLE FOR READ RESULT ZR_Travel_D\\booking,
       reported          TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
 
@@ -166,8 +166,8 @@ CLASS ltc_booking IMPLEMENTATION.
 
   METHOD setbookingnumber_newbookingids.
     DATA:
-      booking_mock_data TYPE STANDARD TABLE OF za_booking_d,
-      bookings_to_test  TYPE STANDARD TABLE OF ZR_Booking_D WITH KEY bookinguuid,
+      booking_mock_data TYPE STANDARD TABLE OF zabooking_d,
+      bookings_to_test  TYPE STANDARD TABLE OF ZRBooking_D WITH KEY bookinguuid,
       exp_bookings      TYPE TABLE FOR READ RESULT ZR_Travel_D\\booking,
       reported          TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
 
@@ -216,8 +216,8 @@ CLASS ltc_booking IMPLEMENTATION.
 
   METHOD setbookingnumber_mixed.
     DATA:
-      booking_mock_data TYPE STANDARD TABLE OF za_booking_d,
-      bookings_to_test  TYPE STANDARD TABLE OF ZR_Booking_D WITH KEY bookinguuid,
+      booking_mock_data TYPE STANDARD TABLE OF zabooking_d,
+      bookings_to_test  TYPE STANDARD TABLE OF ZRBooking_D WITH KEY bookinguuid,
       exp_bookings      TYPE TABLE FOR READ RESULT ZR_Travel_D\\booking,
       reported          TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
 
@@ -270,8 +270,8 @@ CLASS ltc_booking IMPLEMENTATION.
 
   METHOD setbookingdate.
     DATA:
-      booking_mock_data TYPE STANDARD TABLE OF za_booking_d,
-      bookings_to_test  TYPE STANDARD TABLE OF ZR_Booking_D WITH KEY bookinguuid,
+      booking_mock_data TYPE STANDARD TABLE OF zabooking_d,
+      bookings_to_test  TYPE STANDARD TABLE OF ZRBooking_D WITH KEY bookinguuid,
       exp_bookings      TYPE TABLE FOR READ RESULT ZR_Travel_D\\booking,
       reported          TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D,
       today             TYPE cl_abap_context_info=>ty_system_date,
@@ -326,8 +326,8 @@ CLASS ltc_booking IMPLEMENTATION.
       c_flight_price TYPE zflight_price VALUE '10'.
 
     DATA:
-      booking_mock_data TYPE STANDARD TABLE OF za_booking_d,
-      bookings_to_test  TYPE STANDARD TABLE OF ZR_Booking_D WITH KEY bookinguuid,
+      booking_mock_data TYPE STANDARD TABLE OF zabooking_d,
+      bookings_to_test  TYPE STANDARD TABLE OF ZRBooking_D WITH KEY bookinguuid,
       reported          TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
 
     booking_mock_data = VALUE #(
@@ -371,7 +371,7 @@ CLASS ltc_booking IMPLEMENTATION.
 
     DATA:
       customer_mock_data TYPE STANDARD TABLE OF zcustomer,
-      booking_mock_data  TYPE STANDARD TABLE OF za_booking_d,
+      booking_mock_data  TYPE STANDARD TABLE OF zabooking_d,
       bookings_to_test   TYPE TABLE FOR VALIDATION ZR_Travel_D\\booking~validateCustomer,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -410,7 +410,7 @@ CLASS ltc_booking IMPLEMENTATION.
 
     DATA:
       customer_mock_data TYPE STANDARD TABLE OF zcustomer,
-      booking_mock_data  TYPE STANDARD TABLE OF za_booking_d,
+      booking_mock_data  TYPE STANDARD TABLE OF zabooking_d,
       bookings_to_test   TYPE TABLE FOR VALIDATION ZR_Travel_D\\Booking~validateCustomer,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -453,7 +453,7 @@ CLASS ltc_booking IMPLEMENTATION.
 
     DATA:
       customer_mock_data TYPE STANDARD TABLE OF zcustomer,
-      booking_mock_data  TYPE STANDARD TABLE OF za_booking_d,
+      booking_mock_data  TYPE STANDARD TABLE OF zabooking_d,
       bookings_to_test   TYPE TABLE FOR VALIDATION ZR_Travel_D\\Booking~validateCustomer,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -498,7 +498,7 @@ CLASS ltc_booking IMPLEMENTATION.
 
     DATA:
       flight_mock_data TYPE STANDARD TABLE OF zflight,
-      booking_mock_data    TYPE STANDARD TABLE OF za_booking_d,
+      booking_mock_data    TYPE STANDARD TABLE OF zabooking_d,
       bookings_to_test     TYPE TABLE FOR VALIDATION ZR_Travel_D\\booking~validateConnection,
       failed               TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported             TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -544,7 +544,7 @@ CLASS ltc_booking IMPLEMENTATION.
 
     DATA:
       flight_mock_data TYPE STANDARD TABLE OF zflight,
-      booking_mock_data    TYPE STANDARD TABLE OF za_booking_d,
+      booking_mock_data    TYPE STANDARD TABLE OF zabooking_d,
       bookings_to_test     TYPE TABLE FOR VALIDATION ZR_Travel_D\\Booking~validateConnection,
       failed               TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported             TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -592,7 +592,7 @@ CLASS ltc_booking IMPLEMENTATION.
 
     DATA:
       flight_mock_data TYPE STANDARD TABLE OF zflight,
-      booking_mock_data    TYPE STANDARD TABLE OF za_booking_d,
+      booking_mock_data    TYPE STANDARD TABLE OF zabooking_d,
       bookings_to_test     TYPE TABLE FOR VALIDATION ZR_Travel_D\\Booking~validateConnection,
       failed               TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported             TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.

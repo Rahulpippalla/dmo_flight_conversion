@@ -302,8 +302,8 @@ CLASS ltcl_handler IMPLEMENTATION.
 
     DATA(fm_update_double) = fm_test_environment->get_double( fm_update ).
 
-    DATA(travel)    = VALUE zs_travel_in(  travel_id = travel_id ).
-    DATA(travelx)   = VALUE zs_travel_inx( travel_id = travel_id ).
+    DATA(travel)    = VALUE zstravel_in(  travel_id = travel_id ).
+    DATA(travelx)   = VALUE zstravel_inx( travel_id = travel_id ).
     DATA(bookings)  = VALUE zt_booking_in( (
                            travel_id   = travel_id
                            booking_id  = booking_id
@@ -403,8 +403,8 @@ CLASS ltcl_handler IMPLEMENTATION.
 
     DATA(fm_update_double) = fm_test_environment->get_double( fm_update ).
 
-    DATA(travel)    = VALUE zs_travel_in(     travel_id = travel_id ).
-    DATA(travelx)   = VALUE zs_travel_inx(    travel_id = travel_id ).
+    DATA(travel)    = VALUE zstravel_in(     travel_id = travel_id ).
+    DATA(travelx)   = VALUE zstravel_inx(    travel_id = travel_id ).
     DATA(bookings)  = VALUE zt_booking_in( (  travel_id = travel_id                                    booking_id = booking_id ) ).
     DATA(bookingsx) = VALUE zt_booking_inx( ( action_code = zif_flight_legacy=>action_code-delete  booking_id = booking_id ) ).
 
@@ -753,19 +753,19 @@ CLASS ltcl_handler IMPLEMENTATION.
     DATA:
       entities_cba                   TYPE TABLE FOR CREATE zi_travel_u\\Booking\_BookSupplement,
       mapped_line_booking_supplement LIKE LINE OF mapped-bookingsupplement,
-      travel                         TYPE zs_travel_in,
-      travelx                        TYPE zs_travel_inx,
+      travel                         TYPE zstravel_in,
+      travelx                        TYPE zstravel_inx,
       old_booking_supplement         TYPE zbook_suppl,
-      new_booking_supplement         TYPE zs_booking_supplement_in,
-      new_booking_supplementx        TYPE zs_booking_supplement_inx,
+      new_booking_supplement         TYPE zsbooking_supplement_in,
+      new_booking_supplementx        TYPE zsbooking_supplement_inx,
       old_booking_supplements        TYPE zt_booking_supplement,
       new_booking_supplements        TYPE zt_booking_supplement_in,
       new_booking_supplementsx       TYPE zt_booking_supplement_inx.
 
-    travel  = VALUE zs_travel_in(  travel_id = travel_id ).
-    travelx = VALUE zs_travel_inx( travel_id = travel_id ).
+    travel  = VALUE zstravel_in(  travel_id = travel_id ).
+    travelx = VALUE zstravel_inx( travel_id = travel_id ).
 
-    new_booking_supplement  = VALUE zs_booking_supplement_in(
+    new_booking_supplement  = VALUE zsbooking_supplement_in(
                                    booking_id            = booking_id
                                    booking_supplement_id = booking_supplement_id + 1
                                    supplement_id         = supplement_id
@@ -780,7 +780,7 @@ CLASS ltcl_handler IMPLEMENTATION.
                      ).
     APPEND old_booking_supplement TO old_booking_supplements.
 
-    new_booking_supplementx = VALUE zs_booking_inx(
+    new_booking_supplementx = VALUE zsbooking_intx(
                        booking_id  = booking_id
                        action_code = zif_flight_legacy=>action_code-create
                      ).

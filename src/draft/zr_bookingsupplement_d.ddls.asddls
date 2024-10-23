@@ -2,15 +2,15 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
 define view entity ZR_BookingSupplement_D
-  as select from za_bksuppl_d
+  as select from zabksuppl_d
 
-  association        to parent ZR_Booking_D as _Booking        on $projection.BookingUUID  = _Booking.BookingUUID
+  association        to parent ZRBooking_D as _Booking        on $projection.BookingUUID  = _Booking.BookingUUID
   association [1..1] to ZR_Travel_D         as _Travel         on $projection.TravelUUID   = _Travel.TravelUUID
 
   association [1..1] to ZI_Supplement       as _Product        on $projection.SupplementID = _Product.SupplementID
   association [1..*] to ZI_SupplementText   as _SupplementText on $projection.SupplementID = _SupplementText.SupplementID
 
-{ //za_bksuppl_d
+{ //zabksuppl_d
   key booksuppl_uuid        as BookSupplUUID,
       root_uuid             as TravelUUID,
       parent_uuid           as BookingUUID,

@@ -25,7 +25,7 @@ FUNCTION zflight_travel_create.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
-*"     REFERENCE(IS_TRAVEL) TYPE  ZS_TRAVEL_IN
+*"     REFERENCE(IS_TRAVEL) TYPE  ZSTRAVEL_IN
 *"     REFERENCE(IT_BOOKING) TYPE  ZT_BOOKING_IN OPTIONAL
 *"     REFERENCE(IT_BOOKING_SUPPLEMENT) TYPE
 *"        ZT_BOOKING_SUPPLEMENT_IN OPTIONAL

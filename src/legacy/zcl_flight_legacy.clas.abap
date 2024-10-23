@@ -22,7 +22,7 @@ CLASS zcl_flight_legacy DEFINITION
     METHODS set_status_to_booked IMPORTING iv_travel_id TYPE ztravel_id
                                  EXPORTING et_messages  TYPE zif_flight_legacy=>tt_if_t100_message.
 
-    METHODS create_travel IMPORTING is_travel             TYPE zs_travel_in
+    METHODS create_travel IMPORTING is_travel             TYPE zstravel_in
                                     it_booking            TYPE zt_booking_in OPTIONAL
                                     it_booking_supplement TYPE zt_booking_supplement_in OPTIONAL
                                     iv_numbering_mode     TYPE zif_flight_legacy=>t_numbering_mode DEFAULT zif_flight_legacy=>numbering_mode-early
@@ -30,8 +30,8 @@ CLASS zcl_flight_legacy DEFINITION
                                     et_booking            TYPE zt_booking
                                     et_booking_supplement TYPE zt_booking_supplement
                                     et_messages           TYPE zif_flight_legacy=>tt_if_t100_message.
-    METHODS update_travel IMPORTING is_travel              TYPE zs_travel_in
-                                    is_travelx             TYPE zs_travel_inx
+    METHODS update_travel IMPORTING is_travel              TYPE zstravel_in
+                                    is_travelx             TYPE zstravel_inx
                                     it_booking             TYPE zt_booking_in OPTIONAL
                                     it_bookingx            TYPE zt_booking_inx OPTIONAL
                                     it_booking_supplement  TYPE zt_booking_supplement_in OPTIONAL
@@ -386,7 +386,7 @@ CLASS zcl_flight_legacy IMPLEMENTATION.
         INSERT ls_booking INTO TABLE lt_booking.
       ENDLOOP.
       LOOP AT it_bookingx INTO DATA(ls_booking_inx).
-        DATA ls_bookingx TYPE zs_bookingx.
+        DATA ls_bookingx TYPE zsbookingx.
         ls_bookingx = CORRESPONDING #( ls_booking_inx ).
         ls_bookingx-travel_id = is_travel-travel_id.
         INSERT ls_bookingx INTO TABLE lt_bookingx.
@@ -416,7 +416,7 @@ CLASS zcl_flight_legacy IMPLEMENTATION.
       ENDLOOP.
       IF et_messages IS INITIAL.
         LOOP AT it_booking_supplementx INTO DATA(ls_booking_supplement_inx).
-          DATA ls_booking_supplementx TYPE zs_booking_supplementx.
+          DATA ls_booking_supplementx TYPE zsbooking_supplementx.
           ls_booking_supplementx = CORRESPONDING #( ls_booking_supplement_inx ).
           ls_booking_supplementx-travel_id = is_travel-travel_id.
           INSERT ls_booking_supplementx INTO TABLE lt_booking_supplementx.

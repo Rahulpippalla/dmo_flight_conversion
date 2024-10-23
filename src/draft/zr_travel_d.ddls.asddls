@@ -2,16 +2,16 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
 define root view entity ZR_Travel_D
-  as select from za_travel_d
+  as select from zatravel_d
 
-  composition [0..*] of ZR_Booking_D         as _Booking
+  composition [0..*] of ZRBooking_D         as _Booking
 
   association [0..1] to ZI_Agency            as _Agency        on $projection.AgencyID = _Agency.AgencyID
   association [0..1] to ZI_Customer          as _Customer      on $projection.CustomerID = _Customer.CustomerID
   association [1..1] to ZI_Overall_Status_VH as _OverallStatus on $projection.OverallStatus = _OverallStatus.OverallStatus
   association [0..1] to I_Currency               as _Currency      on $projection.CurrencyCode = _Currency.Currency
 
-{ //za_travel_d
+{ //zatravel_d
   key travel_uuid           as TravelUUID,
 
       travel_id             as TravelID,

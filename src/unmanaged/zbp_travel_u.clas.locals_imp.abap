@@ -115,7 +115,7 @@ CLASS lhc_travel IMPLEMENTATION.
 
       CALL FUNCTION 'ZFLIGHT_TRAVEL_CREATE'
         EXPORTING
-          is_travel         = CORRESPONDING zs_travel_in( travel_in )
+          is_travel         = CORRESPONDING zstravel_in( travel_in )
           iv_numbering_mode = zif_flight_legacy=>numbering_mode-late
         IMPORTING
           es_travel         = travel_out
@@ -151,7 +151,7 @@ CLASS lhc_travel IMPLEMENTATION.
   METHOD update.
     DATA: messages TYPE zt_message,
           travel   TYPE ztravel,
-          travelx  TYPE zs_travel_inx. "refers to x structure (> BAPIs)
+          travelx  TYPE zstravel_inx. "refers to x structure (> BAPIs)
 
     LOOP AT entities ASSIGNING FIELD-SYMBOL(<travel_update>).
 
@@ -162,7 +162,7 @@ CLASS lhc_travel IMPLEMENTATION.
 
       CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
         EXPORTING
-          is_travel   = CORRESPONDING zs_travel_in( travel )
+          is_travel   = CORRESPONDING zstravel_in( travel )
           is_travelx  = travelx
         IMPORTING
           et_messages = messages.
@@ -415,8 +415,8 @@ CLASS lhc_travel IMPLEMENTATION.
 
           CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
             EXPORTING
-              is_travel   = VALUE zs_travel_in( travel_id = travelid )
-              is_travelx  = VALUE zs_travel_inx( travel_id = travelid )
+              is_travel   = VALUE zstravel_in( travel_id = travelid )
+              is_travelx  = VALUE zstravel_inx( travel_id = travelid )
               it_booking  = VALUE zt_booking_in( ( CORRESPONDING #( booking ) ) )
               it_bookingx = VALUE zt_booking_inx(
                 (

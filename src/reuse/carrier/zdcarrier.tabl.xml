@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD02V>
-    <TABNAME>ZD_CARRIER</TABNAME>
+    <TABNAME>ZDCARRIER</TABNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <TABCLASS>TRANSP</TABCLASS>
     <CLIDEP>X</CLIDEP>
@@ -14,7 +14,7 @@
     <EXCLASS>4</EXCLASS>
    </DD02V>
    <DD09L>
-    <TABNAME>ZD_CARRIER</TABNAME>
+    <TABNAME>ZDCARRIER</TABNAME>
     <AS4LOCAL>A</AS4LOCAL>
     <TABKAT>0</TABKAT>
     <TABART>APPL0</TABART>

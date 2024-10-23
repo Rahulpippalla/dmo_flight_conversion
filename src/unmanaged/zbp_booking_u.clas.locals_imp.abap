@@ -64,7 +64,7 @@ CLASS lhc_booking IMPLEMENTATION.
   METHOD update.
     DATA: messages TYPE zt_message,
           booking  TYPE zbooking,
-          bookingx TYPE zs_booking_inx.
+          bookingx TYPE zsbooking_intx.
 
     LOOP AT entities ASSIGNING FIELD-SYMBOL(<booking>).
 
@@ -76,8 +76,8 @@ CLASS lhc_booking IMPLEMENTATION.
 
       CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
         EXPORTING
-          is_travel   = VALUE zs_travel_in( travel_id = <booking>-travelid )
-          is_travelx  = VALUE zs_travel_inx( travel_id = <booking>-travelid )
+          is_travel   = VALUE zstravel_in( travel_id = <booking>-travelid )
+          is_travelx  = VALUE zstravel_inx( travel_id = <booking>-travelid )
           it_booking  = VALUE zt_booking_in( ( CORRESPONDING #( booking ) ) )
           it_bookingx = VALUE zt_booking_inx( ( bookingx ) )
         IMPORTING
@@ -108,8 +108,8 @@ CLASS lhc_booking IMPLEMENTATION.
 
       CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
         EXPORTING
-          is_travel   = VALUE zs_travel_in( travel_id = <booking>-travelid )
-          is_travelx  = VALUE zs_travel_inx( travel_id = <booking>-travelid )
+          is_travel   = VALUE zstravel_in( travel_id = <booking>-travelid )
+          is_travelx  = VALUE zstravel_inx( travel_id = <booking>-travelid )
           it_booking  = VALUE zt_booking_in( ( booking_id = <booking>-bookingid ) )
           it_bookingx = VALUE zt_booking_inx( ( booking_id  = <booking>-bookingid
                                                     action_code = zif_flight_legacy=>action_code-delete ) )
@@ -381,8 +381,8 @@ CLASS lhc_booking IMPLEMENTATION.
           " Create a new booking supplement and update a booking instance
           CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
             EXPORTING
-              is_travel              = VALUE zs_travel_in( travel_id = parent_key-travelid )
-              is_travelx             = VALUE zs_travel_inx( travel_id = parent_key-travelid )
+              is_travel              = VALUE zstravel_in( travel_id = parent_key-travelid )
+              is_travelx             = VALUE zstravel_inx( travel_id = parent_key-travelid )
               it_booking_supplement  = VALUE zt_booking_supplement_in( ( CORRESPONDING #( booksupplement ) ) )
               it_booking_supplementx = VALUE zt_booking_supplement_inx( ( VALUE #(
                                                                                  booking_id = booksupplement-booking_id

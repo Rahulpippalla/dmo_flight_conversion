@@ -36,7 +36,7 @@ CLASS ltc_travel DEFINITION FOR TESTING DURATION SHORT RISK LEVEL HARMLESS.
     CLASS-DATA gv_customer_id_2            TYPE zcustomer_id.
     CLASS-DATA gv_customer_id_unknown      TYPE zcustomer_id.
 
-    METHODS _create_travel IMPORTING is_travel        TYPE zs_travel_in
+    METHODS _create_travel IMPORTING is_travel        TYPE zstravel_in
                                      iv_save          TYPE abap_bool DEFAULT abap_true
                            RETURNING VALUE(rs_travel) TYPE ztravel.
     METHODS _delete_existing_travel IMPORTING iv_travel_id TYPE ztravel_id.
@@ -1239,7 +1239,7 @@ CLASS ltc_booking DEFINITION FOR TESTING DURATION SHORT RISK LEVEL HARMLESS INHE
     DATA mv_travel_id_unknown TYPE ztravel_id.
 
     METHODS _create_booking IMPORTING iv_travel_id      TYPE ztravel_id
-                                      is_booking        TYPE zs_booking_in
+                                      is_booking        TYPE zsbooking_in
                                       iv_save           TYPE abap_bool DEFAULT abap_true
                             RETURNING VALUE(rs_booking) TYPE zbooking.
     METHODS _delete_existing_booking IMPORTING iv_travel_id  TYPE ztravel_id
@@ -2546,7 +2546,7 @@ CLASS ltc_booking_supplement DEFINITION FINAL FOR TESTING DURATION SHORT RISK LE
     METHODS u_currency_code_unknown  FOR TESTING RAISING cx_static_check.
 
     METHODS _create_booking_suppl IMPORTING iv_travel_id                 TYPE ztravel_id
-                                            is_booking_supplement        TYPE zs_booking_supplement_in
+                                            is_booking_supplement        TYPE zsbooking_supplement_in
                                             iv_save                      TYPE abap_bool DEFAULT abap_true
                                   RETURNING VALUE(rs_booking_supplement) TYPE zbook_suppl.
 

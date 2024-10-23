@@ -4,8 +4,8 @@ with draft;
 
 define behavior for ZR_Travel_D alias Travel
 implementation in class zbp_travel_d unique
-persistent table za_travel_d
-draft table zd_travel_d
+persistent table zatravel_d
+draft table zdtravel_d
 lock master
 total etag LastChangedAt
 authorization master ( global, instance )
@@ -48,7 +48,7 @@ etag master LocalLastChangedAt
     validation Booking ~ validateConnection;
     validation Bookingsupplement ~ validateSupplement; }
 
-  mapping for za_travel_d
+  mapping for zatravel_d
   { AgencyID = agency_id;
     BeginDate = begin_date;
     BookingFee = booking_fee;
@@ -67,10 +67,10 @@ etag master LocalLastChangedAt
     TravelUUID = travel_uuid; }
 }
 
-define behavior for ZR_Booking_D alias Booking
+define behavior for ZRBooking_D alias Booking
 implementation in class zbp_booking_d unique
-persistent table za_booking_d
-draft table zd_booking_d
+persistent table zabooking_d
+draft table ZDBOOKING_D
 lock dependent by _Travel
 authorization dependent by _Travel
 etag master LocalLastChangedAt
@@ -93,7 +93,7 @@ etag master LocalLastChangedAt
   validation validateCustomer on save { create; field CustomerID; }
   validation validateConnection on save { create; field AirlineID, ConnectionID, FlightDate; }
 
-  mapping for za_booking_d
+  mapping for zabooking_d
   { AirlineID = carrier_id;
     BookingDate = booking_date;
     BookingID = booking_id;
@@ -111,8 +111,8 @@ etag master LocalLastChangedAt
 
 define behavior for ZR_BookingSupplement_D alias BookingSupplement
 implementation in class zbp_bookingsupplement_d unique
-persistent table za_bksuppl_d
-draft table zd_bksuppl_d
+persistent table zabksuppl_d
+draft table ZDBKSUPPL_D
 lock dependent by _Travel
 authorization dependent by _Travel
 etag master LocalLastChangedAt
@@ -132,7 +132,7 @@ etag master LocalLastChangedAt
 
   validation validateSupplement on save { create; field SupplementID; }
 
-  mapping for za_bksuppl_d
+  mapping for zabksuppl_d
   { BookSupplPrice = price;
     BookSupplUUID = booksuppl_uuid;
     BookingSupplementID = booking_supplement_id;

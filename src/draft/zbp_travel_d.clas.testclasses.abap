@@ -171,7 +171,7 @@ CLASS ltc_travel IMPLEMENTATION.
     cds_test_environment = cl_cds_test_environment=>create_for_multiple_cds(
                                VALUE #(
                                    ( i_for_entity = 'ZR_Travel_D'            )
-                                   ( i_for_entity = 'ZR_Booking_D'           )
+                                   ( i_for_entity = 'ZRBooking_D'           )
                                    ( i_for_entity = 'ZR_BookingSupplement_D' )
                                  )
                              ).
@@ -200,7 +200,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD settravelnumber_idempotence.
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE STANDARD TABLE OF ZR_Travel_D WITH KEY TravelUUID,
       exp_travels      TYPE TABLE FOR READ RESULT ZR_Travel_D\\travel,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -236,7 +236,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD settravelnumber_newtravelids.
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE STANDARD TABLE OF ZR_Travel_D WITH KEY TravelUUID,
       exp_travels      TYPE TABLE FOR READ RESULT ZR_Travel_D\\travel,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -280,7 +280,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD settravelnumber_mixed.
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE STANDARD TABLE OF ZR_Travel_D WITH KEY TravelUUID,
       exp_travels      TYPE TABLE FOR READ RESULT ZR_Travel_D\\travel,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -325,7 +325,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD accepttravel.
     DATA:
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE STANDARD TABLE OF ZR_Travel_D WITH KEY TravelUUID,
       exp_travels_action TYPE TABLE FOR ACTION RESULT ZR_Travel_D\\travel~acceptTravel,
       exp_travel_read    TYPE STRUCTURE FOR READ RESULT ZR_Travel_D\\travel,
@@ -387,7 +387,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD rejecttravel.
     DATA:
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE STANDARD TABLE OF ZR_Travel_D WITH KEY TravelUUID,
       exp_travels_action TYPE TABLE FOR ACTION RESULT ZR_Travel_D\\travel~rejectTravel,
       exp_travel_read    TYPE STRUCTURE FOR READ RESULT ZR_Travel_D\\travel,
@@ -492,7 +492,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD deductdiscount_success.
     DATA:
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE TABLE FOR ACTION IMPORT ZR_Travel_D\\travel~deductdiscount,
       exp_travels_action TYPE TABLE FOR ACTION RESULT ZR_Travel_D\\travel~deductdiscount,
       exp_travel_read    TYPE STRUCTURE FOR READ RESULT ZR_Travel_D\\travel,
@@ -560,17 +560,17 @@ CLASS ltc_travel IMPLEMENTATION.
       c_supplement_price TYPE zsupplement_price VALUE '1'.
 
     CONSTANTS:
-      booking_uuid1           TYPE za_booking_d-booking_uuid VALUE 'B1',
-      booking_uuid2           TYPE za_booking_d-booking_uuid VALUE 'B2',
-      bookingsupplement_uuid1 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C1',
-      bookingsupplement_uuid2 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C2',
-      bookingsupplement_uuid3 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C3',
-      bookingsupplement_uuid4 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C4'.
+      booking_uuid1           TYPE zabooking_d-booking_uuid VALUE 'B1',
+      booking_uuid2           TYPE zabooking_d-booking_uuid VALUE 'B2',
+      bookingsupplement_uuid1 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C1',
+      bookingsupplement_uuid2 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C2',
+      bookingsupplement_uuid3 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C3',
+      bookingsupplement_uuid4 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C4'.
 
     DATA:
-      travel_mock_data            TYPE STANDARD TABLE OF za_travel_d,
-      booking_mock_data           TYPE STANDARD TABLE OF za_booking_d,
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      travel_mock_data            TYPE STANDARD TABLE OF zatravel_d,
+      booking_mock_data           TYPE STANDARD TABLE OF zabooking_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       travels_to_test             TYPE TABLE FOR ACTION IMPORT ZR_Travel_D\\travel~reCalcTotalPrice,
       exp_travel_read             TYPE TABLE FOR READ RESULT ZR_Travel_D\\travel,
       mapped                      TYPE RESPONSE FOR MAPPED EARLY  ZR_Travel_D,
@@ -648,17 +648,17 @@ CLASS ltc_travel IMPLEMENTATION.
       c_supplement_price TYPE zsupplement_price VALUE '1'.
 
     CONSTANTS:
-      booking_uuid1           TYPE za_booking_d-booking_uuid VALUE 'B1',
-      booking_uuid2           TYPE za_booking_d-booking_uuid VALUE 'B2',
-      bookingsupplement_uuid1 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C1',
-      bookingsupplement_uuid2 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C2',
-      bookingsupplement_uuid3 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C3',
-      bookingsupplement_uuid4 TYPE za_bksuppl_d-booksuppl_uuid VALUE 'C4'.
+      booking_uuid1           TYPE zabooking_d-booking_uuid VALUE 'B1',
+      booking_uuid2           TYPE zabooking_d-booking_uuid VALUE 'B2',
+      bookingsupplement_uuid1 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C1',
+      bookingsupplement_uuid2 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C2',
+      bookingsupplement_uuid3 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C3',
+      bookingsupplement_uuid4 TYPE zabksuppl_d-booksuppl_uuid VALUE 'C4'.
 
     DATA:
-      travel_mock_data            TYPE STANDARD TABLE OF za_travel_d,
-      booking_mock_data           TYPE STANDARD TABLE OF za_booking_d,
-      bookingsupplement_mock_data TYPE STANDARD TABLE OF za_bksuppl_d,
+      travel_mock_data            TYPE STANDARD TABLE OF zatravel_d,
+      booking_mock_data           TYPE STANDARD TABLE OF zabooking_d,
+      bookingsupplement_mock_data TYPE STANDARD TABLE OF zabksuppl_d,
       travels_to_test             TYPE TABLE FOR ACTION IMPORT ZR_Travel_D\\travel~reCalcTotalPrice,
       exp_travel_read             TYPE TABLE FOR READ RESULT ZR_Travel_D\\travel,
       mapped                      TYPE RESPONSE FOR MAPPED EARLY  ZR_Travel_D,
@@ -743,7 +743,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD setstatustoopen.
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE TABLE FOR DETERMINATION ZR_Travel_D\\travel~setStatusToOpen,
       exp_travel_read  TYPE TABLE FOR READ RESULT ZR_Travel_D\\travel,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -792,7 +792,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       customer_mock_data TYPE STANDARD TABLE OF zcustomer,
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateCustomer,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -831,7 +831,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       customer_mock_data TYPE STANDARD TABLE OF zcustomer,
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateCustomer,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -874,7 +874,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       customer_mock_data TYPE STANDARD TABLE OF zcustomer,
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateCustomer,
       failed             TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported           TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -916,7 +916,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       agency_mock_data TYPE STANDARD TABLE OF zagency,
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateagency,
       failed           TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -955,7 +955,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       agency_mock_data TYPE STANDARD TABLE OF zagency,
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateagency,
       failed           TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -998,7 +998,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       agency_mock_data TYPE STANDARD TABLE OF zagency,
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateagency,
       failed           TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D.
@@ -1036,7 +1036,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD validatedates_success.
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test  TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateDates,
       failed           TYPE RESPONSE FOR FAILED LATE  ZR_Travel_D,
       reported         TYPE RESPONSE FOR REPORTED LATE  ZR_Travel_D,
@@ -1072,7 +1072,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
   METHOD validatedates_not_valid.
     TYPES: BEGIN OF t_check.
-             INCLUDE TYPE ZA_Travel_D.
+             INCLUDE TYPE ZATRAVEL_D.
     TYPES:   exp_amount_reported_entries TYPE i,
              exp_amount_failed_entries   TYPE i,
            END OF t_check,
@@ -1083,7 +1083,7 @@ CLASS ltc_travel IMPLEMENTATION.
       uuid6 TYPE sysuuid_x16 VALUE '66657221A8E4645C17002DF03754A6'.
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_check TYPE t_check_table,
       travel_to_check  TYPE t_check,
       travels_to_test  TYPE TABLE FOR VALIDATION ZR_Travel_D\\travel~validateDates,
@@ -1173,7 +1173,7 @@ CLASS ltc_travel IMPLEMENTATION.
 
     DATA:
       check_table        TYPE t_check_table,
-      travel_mock_data   TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data   TYPE STANDARD TABLE OF ZATRAVEL_D,
       travels_to_test    TYPE TABLE FOR INSTANCE FEATURES KEY ZR_Travel_D\\travel,
       requested_features TYPE STRUCTURE FOR INSTANCE FEATURES REQUEST ZR_Travel_D\\travel,
       act_result         TYPE TABLE FOR INSTANCE FEATURES RESULT ZR_Travel_D\\travel,
@@ -1322,7 +1322,7 @@ CLASS ltc_travel IMPLEMENTATION.
       c_country_us TYPE zagency-country_code VALUE 'DE' ##NO_TEXT.
 
     DATA:
-      travel_mock_data         TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data         TYPE STANDARD TABLE OF ZATRAVEL_D,
       agency_mock_data         TYPE STANDARD TABLE OF zagency,
       travels_to_test          TYPE TABLE FOR AUTHORIZATION KEY ZR_Travel_D\\travel,
       requested_authorizations TYPE STRUCTURE FOR AUTHORIZATION REQUEST ZR_Travel_D\\travel,
@@ -1387,7 +1387,7 @@ CLASS ltc_travel IMPLEMENTATION.
       c_country_us TYPE zagency-country_code VALUE 'DE' ##NO_TEXT.
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       agency_mock_data TYPE STANDARD TABLE OF zagency,
       travels_to_test  TYPE TABLE FOR CREATE ZR_Travel_D\\travel,
       failed           TYPE RESPONSE FOR FAILED EARLY ZR_Travel_D,
@@ -1433,7 +1433,7 @@ CLASS ltc_travel IMPLEMENTATION.
       c_country_us TYPE zagency-country_code VALUE 'DE' ##NO_TEXT.
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       agency_mock_data TYPE STANDARD TABLE OF zagency,
       travels_to_test  TYPE TABLE FOR CREATE ZR_Travel_D\\travel,
       failed           TYPE RESPONSE FOR FAILED EARLY ZR_Travel_D,
@@ -1479,7 +1479,7 @@ CLASS ltc_travel IMPLEMENTATION.
       c_country_us TYPE zagency-country_code VALUE 'DE' ##NO_TEXT.
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       agency_mock_data TYPE STANDARD TABLE OF zagency,
       travels_to_test  TYPE TABLE FOR UPDATE ZR_Travel_D\\travel,
       failed           TYPE RESPONSE FOR FAILED EARLY ZR_Travel_D,
@@ -1525,7 +1525,7 @@ CLASS ltc_travel IMPLEMENTATION.
       c_country_us TYPE zagency-country_code VALUE 'DE' ##NO_TEXT.
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       agency_mock_data TYPE STANDARD TABLE OF zagency,
       travels_to_test  TYPE TABLE FOR UPDATE ZR_Travel_D\\travel,
       failed           TYPE RESPONSE FOR FAILED EARLY ZR_Travel_D,
@@ -1571,7 +1571,7 @@ CLASS ltc_travel IMPLEMENTATION.
       c_country_us TYPE zagency-country_code VALUE 'DE' ##NO_TEXT.
 
     DATA:
-      travel_mock_data TYPE STANDARD TABLE OF ZA_Travel_D,
+      travel_mock_data TYPE STANDARD TABLE OF ZATRAVEL_D,
       agency_mock_data TYPE STANDARD TABLE OF zagency,
       travels_to_test  TYPE TABLE FOR ACTION IMPORT zr_travel_d\\travel~resume,
       failed           TYPE RESPONSE FOR FAILED EARLY ZR_Travel_D,

@@ -19,12 +19,12 @@ CLASS zcl_data_generator_draft IMPLEMENTATION.
 
   METHOD zif_data_generation_badi~data_generation.
     " Travels
-    out->write( ' --> ZA_TRAVEL_D' ).
+    out->write( ' --> ZATRAVEL_D' ).
 
-    DELETE FROM zd_travel_d.                        "#EC CI_NOWHERE
-    DELETE FROM za_travel_d.                        "#EC CI_NOWHERE
+    DELETE FROM zdtravel_d.                        "#EC CI_NOWHERE
+    DELETE FROM zatravel_d.                        "#EC CI_NOWHERE
 
-    INSERT za_travel_d FROM (
+    INSERT zatravel_d FROM (
       SELECT FROM ztravel FIELDS
         " client
         uuid( ) AS travel_uuid,
@@ -50,19 +50,19 @@ CLASS zcl_data_generator_draft IMPLEMENTATION.
 
 
     " bookings
-    out->write( ' --> ZA_BOOKING_D' ).
+    out->write( ' --> ZABOOKING_D' ).
 
-    DELETE FROM zd_booking_d.                       "#EC CI_NOWHERE
-    DELETE FROM za_booking_d.                       "#EC CI_NOWHERE
+    DELETE FROM ZDBOOKING_D.                       "#EC CI_NOWHERE
+    DELETE FROM zabooking_d.                       "#EC CI_NOWHERE
 
-    INSERT za_booking_d FROM (
+    INSERT zabooking_d FROM (
         SELECT
           FROM zbooking
-            JOIN za_travel_d ON zbooking~travel_id = za_travel_d~travel_id
+            JOIN zatravel_d ON zbooking~travel_id = zatravel_d~travel_id
             JOIN ztravel ON ztravel~travel_id = zbooking~travel_id
           FIELDS  "client,
                   uuid( ) AS booking_uuid,
-                  za_travel_d~travel_uuid AS parent_uuid,
+                  zatravel_d~travel_uuid AS parent_uuid,
                   zbooking~booking_id,
                   zbooking~booking_date,
                   zbooking~customer_id,
@@ -73,21 +73,21 @@ CLASS zcl_data_generator_draft IMPLEMENTATION.
                   zbooking~currency_code,
                   CASE ztravel~status WHEN 'P' THEN 'N'
                                                    ELSE ztravel~status END AS booking_status,
-                  za_travel_d~last_changed_at AS local_last_changed_at
+                  zatravel_d~last_changed_at AS local_last_changed_at
     ).
 
 
 
     " Booking supplements
-    out->write( ' --> ZA_BKSUPPL_D' ).
+    out->write( ' --> ZABKSUPPL_D' ).
 
-    DELETE FROM zd_bksuppl_d.                       "#EC CI_NOWHERE
-    DELETE FROM za_bksuppl_d.                       "#EC CI_NOWHERE
+    DELETE FROM ZDBKSUPPL_D.                       "#EC CI_NOWHERE
+    DELETE FROM zabksuppl_d.                       "#EC CI_NOWHERE
 
-    INSERT za_bksuppl_d FROM (
+    INSERT zabksuppl_d FROM (
       SELECT FROM zbook_suppl    AS supp
-               JOIN za_travel_d  AS trvl ON trvl~travel_id = supp~travel_id
-               JOIN za_booking_d AS book ON book~parent_uuid = trvl~travel_uuid
+               JOIN zatravel_d  AS trvl ON trvl~travel_id = supp~travel_id
+               JOIN zabooking_d AS book ON book~parent_uuid = trvl~travel_uuid
                                             AND book~booking_id = supp~booking_id
 
         FIELDS

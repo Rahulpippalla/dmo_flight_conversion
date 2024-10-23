@@ -1,8 +1,8 @@
 @EndUserText.label: 'Booking View Entity for Draft RefScen'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
-define view entity ZR_Booking_D
-  as select from za_booking_d
+define view entity ZRBooking_D
+  as select from zabooking_d
 
   association        to parent ZR_Travel_D     as _Travel        on  $projection.TravelUUID = _Travel.TravelUUID
   composition [0..*] of ZR_BookingSupplement_D as _BookingSupplement
@@ -13,7 +13,7 @@ define view entity ZR_Booking_D
                                                                      and $projection.ConnectionID = _Connection.ConnectionID
   association [1..1] to ZI_Booking_Status_VH   as _BookingStatus on  $projection.BookingStatus = _BookingStatus.BookingStatus
 
-{ //za_booking_d
+{ //zabooking_d
   key booking_uuid          as BookingUUID,
       parent_uuid           as TravelUUID,
 

@@ -54,8 +54,8 @@ CLASS lhc_bookingsupplement IMPLEMENTATION.
 
       CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
         EXPORTING
-          is_travel              = VALUE zs_travel_in( travel_id = <bookingsupplement>-travelid )
-          is_travelx             = VALUE zs_travel_inx( travel_id = <bookingsupplement>-travelid )
+          is_travel              = VALUE zstravel_in( travel_id = <bookingsupplement>-travelid )
+          is_travelx             = VALUE zstravel_inx( travel_id = <bookingsupplement>-travelid )
           it_booking_supplement  = VALUE zt_booking_supplement_in( ( CORRESPONDING #( book_supplements ) ) )
           it_booking_supplementx = VALUE zt_booking_supplement_inx( (
                                             booking_supplement_id = <bookingsupplement>-bookingsupplementid
@@ -93,8 +93,8 @@ CLASS lhc_bookingsupplement IMPLEMENTATION.
 
       CALL FUNCTION 'ZFLIGHT_TRAVEL_UPDATE'
         EXPORTING
-          is_travel              = VALUE zs_travel_in( travel_id = <bookingsupplement>-travelid )
-          is_travelx             = VALUE zs_travel_inx( travel_id = <bookingsupplement>-travelid )
+          is_travel              = VALUE zstravel_in( travel_id = <bookingsupplement>-travelid )
+          is_travelx             = VALUE zstravel_inx( travel_id = <bookingsupplement>-travelid )
           it_booking             = VALUE zt_booking_in( ( booking_id = <bookingsupplement>-bookingid ) )
           it_bookingx            = VALUE zt_booking_inx( ( booking_id = <bookingsupplement>-bookingid ) )
           it_booking_supplement  = VALUE zt_booking_supplement_in( (  booking_supplement_id = <bookingsupplement>-bookingSupplementid

@@ -78,8 +78,8 @@ CLASS ztc_flight_travel_api IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD cuerd_travel_early_numbering.
-    DATA ls_travel_in  TYPE zs_travel_in.
-    DATA ls_travel_inx TYPE zs_travel_inx.
+    DATA ls_travel_in  TYPE zstravel_in.
+    DATA ls_travel_inx TYPE zstravel_inx.
     DATA ls_travel     TYPE ztravel.
     DATA lt_messages   TYPE zt_message.
 
@@ -222,8 +222,8 @@ CLASS ztc_flight_travel_api IMPLEMENTATION.
 
 
   METHOD cuerd_travel_late_numbering.
-    DATA ls_travel_in  TYPE zs_travel_in.
-    DATA ls_travel_inx TYPE zs_travel_inx.
+    DATA ls_travel_in  TYPE zstravel_in.
+    DATA ls_travel_inx TYPE zstravel_inx.
     DATA ls_travel     TYPE ztravel.
     DATA lt_messages   TYPE zt_message.
     DATA lt_travel_mapping TYPE zif_flight_legacy=>tt_ln_travel_mapping.

@@ -21,7 +21,7 @@ late numbering
   association _Booking { create ( features : instance ); }
 
 
-  mapping for ztravel control zs_travel_intx
+  mapping for ztravel control zstravel_intx
   {
     AgencyID = agency_id;
     BeginDate = begin_date;
@@ -55,7 +55,7 @@ late numbering
   association _BookSupplement { create; }
   association _Travel;
 
-  mapping for zbooking control zs_booking_intx
+  mapping for zbooking control zsbooking_intx
   {
     AirlineID = carrier_id;
     BookingDate = booking_date;
@@ -91,7 +91,7 @@ late numbering
   association _Travel abbreviation Travel;
   association _Booking;
 
-  mapping for zbook_suppl control zs_booking_supplement_intx
+  mapping for zbook_suppl control zsbooking_supplement_intx
   {
     BookingID = booking_id;
     BookingSupplementID = booking_supplement_id;

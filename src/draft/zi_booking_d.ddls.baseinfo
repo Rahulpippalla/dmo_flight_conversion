@@ -3,7 +3,7 @@
 {
 "FROM":
 [
-"ZR_BOOKING_D"
+"ZRBOOKING_D"
 ],
 "ASSOCIATED":
 [
@@ -16,7 +16,7 @@
 ],
 "BASE":
 [
-"ZR_BOOKING_D"
+"ZRBOOKING_D"
 ],
 "ANNO_REF":
 [],

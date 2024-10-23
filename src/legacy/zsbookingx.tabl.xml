@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD02V>
-    <TABNAME>ZS_BOOKINGX</TABNAME>
+    <TABNAME>ZSBOOKINGX</TABNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <TABCLASS>INTTAB</TABCLASS>
     <LANGDEP>X</LANGDEP>
@@ -15,7 +15,7 @@
     <DD03P>
      <FIELDNAME>.INCLUDE</FIELDNAME>
      <ADMINFIELD>0</ADMINFIELD>
-     <PRECFIELD>ZS_BOOKING_KEY</PRECFIELD>
+     <PRECFIELD>ZSBOOKING_KEY</PRECFIELD>
      <MASK>      S</MASK>
      <DDTEXT>Key structure of Booking</DDTEXT>
      <COMPTYPE>S</COMPTYPE>
@@ -31,7 +31,7 @@
     <DD03P>
      <FIELDNAME>.INCLUDE</FIELDNAME>
      <ADMINFIELD>0</ADMINFIELD>
-     <PRECFIELD>ZS_BOOKING_INTX</PRECFIELD>
+     <PRECFIELD>ZSBOOKING_INTX</PRECFIELD>
      <MASK>      S</MASK>
      <DDTEXT>Flag structure for Booking data</DDTEXT>
      <COMPTYPE>S</COMPTYPE>
