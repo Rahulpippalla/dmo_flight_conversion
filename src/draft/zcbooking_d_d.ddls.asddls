@@ -5,7 +5,7 @@
 @Search.searchable: true
 @ObjectModel.semanticKey: ['BookingID']
 
-define view entity ZC_Booking_D_D
+define view entity ZCBooking_D_D
   as projection on ZRBooking_D
 {
   key BookingUUID,

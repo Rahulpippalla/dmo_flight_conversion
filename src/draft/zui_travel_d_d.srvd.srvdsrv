@@ -1,7 +1,7 @@
 @EndUserText.label: 'Travel Draft Scenario (draft projection)'
 define service ZUI_TRAVEL_D_D {
   expose ZC_Travel_D_D as Travel;
-  expose ZC_Booking_D_D as Booking;
+  expose ZCBooking_D_D as Booking;
   expose ZC_BookingSupplement_D_D as BookingSupplement;
   expose ZI_Supplement as Supplement;
   expose ZI_SupplementText as SupplementText;
