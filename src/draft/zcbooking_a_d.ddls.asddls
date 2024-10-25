@@ -3,7 +3,7 @@
 
 @Metadata.allowExtensions: true
 @Search.searchable: true
-define view entity ZC_Booking_A_D
+define view entity ZCBooking_A_D
   as projection on ZRBooking_D
 {
   key BookingUUID,

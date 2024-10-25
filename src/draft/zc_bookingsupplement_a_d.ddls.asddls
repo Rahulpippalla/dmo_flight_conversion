@@ -34,7 +34,7 @@ define view entity ZC_BookingSupplement_A_D
       LocalLastChangedAt,
 
       /* Associations */
-      _Booking : redirected to parent ZC_Booking_A_D,
+      _Booking : redirected to parent ZCBooking_A_D,
       _Product,
       _SupplementText,
       _Travel  : redirected to ZC_Travel_A_D

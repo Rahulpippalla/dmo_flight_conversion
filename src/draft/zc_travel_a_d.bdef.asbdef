@@ -15,7 +15,7 @@ use etag
   use association _Booking { create; }
 }
 
-define behavior for ZC_Booking_A_D alias Booking
+define behavior for ZCBooking_A_D alias Booking
 use etag
 {
   use update;

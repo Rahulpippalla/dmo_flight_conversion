@@ -48,7 +48,7 @@ define root view entity ZC_Travel_A_D
       LocalLastChangedAt,
       /* Associations */
       _Agency,
-      _Booking : redirected to composition child ZC_Booking_A_D,
+      _Booking : redirected to composition child ZCBooking_A_D,
       _Currency,
       _OverallStatus, 
       _Customer
