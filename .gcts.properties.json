@@ -1,0 +1,14 @@
+{
+  "name": "zflight",
+  "version": "1.0.0",
+  "description": "ZFLIGHT",
+  "repositoryLayout": {
+    "formatVersion": 6,
+    "format": "json",
+    "metaInformation": ".gctsmetadata/",
+    "tableContent": "true",
+    "readableSource": "false",
+    "keepClient": "false",
+    "fingerprintSeckey": "/BYOG/FPRINT_RT/DECD6E7AB5FE1EEFABC60CF07B92AFB3_0"
+  }
+}
