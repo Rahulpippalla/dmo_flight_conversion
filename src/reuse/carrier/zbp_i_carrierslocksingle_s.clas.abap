@@ -1,5 +1,13 @@
-CLASS zbp_i_carrierslocksingle_s DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_carrierslocksingleton_s.
+class ZBP_I_CARRIERSLOCKSINGLE_S definition
+  public
+  for behavior of ZI_CARRIERSLOCKSINGLETON_S .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_i_carrierslocksingle_s IMPLEMENTATION.
+
+
+CLASS ZBP_I_CARRIERSLOCKSINGLE_S IMPLEMENTATION.
 ENDCLASS.

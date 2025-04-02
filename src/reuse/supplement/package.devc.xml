@@ -3,16 +3,8 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>Flight Refernece Scenario: Supplement</CTEXT>
-    <COMP_POSID>BC-SRV-NWD-XBR</COMP_POSID>
-    <COMPONENT>BYI3000542</COMPONENT>
+    <CTEXT>ZFLIGHT_REUSE_SUPPLEMENT</CTEXT>
    </DEVC>
-   <PERMISSION>
-    <SCOMPPDTLN>
-     <INTF_NAME>SABP_MAIN_PUBLIC</INTF_NAME>
-     <ERR_SEVER>NONE</ERR_SEVER>
-    </SCOMPPDTLN>
-   </PERMISSION>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -8,6 +8,7 @@
 
 
 annotate view ZC_Booking_U with
+
 {
   @UI.facet: [ { id:            'Booking',
                  purpose:       #STANDARD,

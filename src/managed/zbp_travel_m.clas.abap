@@ -1,5 +1,15 @@
-CLASS zbp_travel_m DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_travel_m.
+class ZBP_TRAVEL_M definition
+  public
+  for behavior of ZI_TRAVEL_M .
+
+public section.
+*TEST - 1
+
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_travel_m IMPLEMENTATION.
+
+
+CLASS ZBP_TRAVEL_M IMPLEMENTATION.
 ENDCLASS.

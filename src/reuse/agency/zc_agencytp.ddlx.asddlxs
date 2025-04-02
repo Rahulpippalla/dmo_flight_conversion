@@ -5,7 +5,7 @@
                      typeNamePlural: 'Agencies',
                      title: { type: #STANDARD, value: 'Name' },
                      imageUrl: 'Attachment',
-                     description: { type: #STANDARD, value: 'AgencyID' } 
+                     description: { type: #STANDARD, value: 'AgencyID' }
                     },
        presentationVariant: [{
            sortOrder: [{ by: 'AgencyID', direction: #ASC }],
@@ -16,39 +16,39 @@
 annotate view ZC_AgencyTP with
 {
   @UI.facet: [
-      { 
+      {
         id:              'Agency',
         purpose:         #STANDARD,
         type:            #COLLECTION,
         label:           'Agency',
-        position:        10 
-      },  
-      {   
+        position:        10
+      },
+      {
         id:              'General',
         targetQualifier: 'General_FG',
         parentId:        'Agency',
         purpose:         #STANDARD,
         type:            #FIELDGROUP_REFERENCE,
         label:           'General',
-        position:        10 
-      },  
-      {   
+        position:        10
+      },
+      {
         id:              'Address',
         targetQualifier: 'Address_FG',
         parentId:        'Agency',
         purpose:         #STANDARD,
         type:            #FIELDGROUP_REFERENCE,
         label:           'Address',
-        position:        20 
-      },  
-      {   
+        position:        20
+      },
+      {
         id:              'Contact',
         targetQualifier: 'Contact_FG',
         parentId:        'Agency',
         purpose:         #STANDARD,
         type:            #FIELDGROUP_REFERENCE,
         label:           'Contact Data',
-        position:        30 
+        position:        30
       }
     ]
   @UI: { lineItem:       [ { position: 10, importance: #HIGH } ] ,
@@ -108,4 +108,5 @@ annotate view ZC_AgencyTP with
 
   @UI.hidden: true
   LocalLastChangedAt;
+
 }

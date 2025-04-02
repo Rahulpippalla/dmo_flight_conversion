@@ -18,6 +18,7 @@ CLASS zcl_flight_legacy DEFINITION
     "   I.e. when one of the levels contains an error, the complete call is refused.
     "   However, the buffer is not cleared in case of an error.
     "   I.e. when the caller wants to start over, he needs to call Initialize() explicitly.
+    "   Extra Code - Conflict Creation
 
     METHODS set_status_to_booked IMPORTING iv_travel_id TYPE ztravel_id
                                  EXPORTING et_messages  TYPE zif_flight_legacy=>tt_if_t100_message.
@@ -33,7 +34,7 @@ CLASS zcl_flight_legacy DEFINITION
     METHODS update_travel IMPORTING is_travel              TYPE zstravel_in
                                     is_travelx             TYPE zstravel_inx
                                     it_booking             TYPE zt_booking_in OPTIONAL
-                                    it_bookingx            TYPE zt_booking_inx OPTIONAL
+                                    it_bookingx            TYPE ztbooking_inx OPTIONAL
                                     it_booking_supplement  TYPE zt_booking_supplement_in OPTIONAL
                                     it_booking_supplementx TYPE zt_booking_supplement_inx OPTIONAL
                           EXPORTING es_travel              TYPE ztravel
@@ -57,10 +58,10 @@ CLASS zcl_flight_legacy DEFINITION
     METHODS convert_messages IMPORTING it_messages TYPE zif_flight_legacy=>tt_if_t100_message
                              EXPORTING et_messages TYPE zt_message.
   PROTECTED SECTION.
-  PRIVATE SECTION.
-    CLASS-DATA go_instance TYPE REF TO zcl_flight_legacy.
+private section.
 
-    CLASS-METHODS:
+  class-data GO_INSTANCE type ref to ZCL_FLIGHT_LEGACY .
+
       "! Calculation of Price <br/>
       "!  <br/>
       "! Price will be calculated using distance multiplied and occupied seats.<br/>
@@ -73,37 +74,49 @@ CLASS zcl_flight_legacy DEFINITION
       "! @parameter iv_seats_occupied_percent | occupied seats
       "! @parameter iv_flight_distance | flight distance in kilometer
       "! @parameter rv_price | calculated flight price
-      calculate_flight_price
-        IMPORTING
-          iv_seats_occupied_percent TYPE zplane_seats_occupied
-          iv_flight_distance        TYPE zflight_distance
-        RETURNING
-          VALUE(rv_price)           TYPE zflight_price ##RELAX.
-
-    METHODS lock_travel IMPORTING iv_lock TYPE abap_bool
-                        RAISING   zcx_flight_legacy ##RELAX ##NEEDED.
-
-    METHODS _resolve_attribute IMPORTING iv_attrname      TYPE scx_attrname
-                                         ix               TYPE REF TO zcx_flight_legacy
-                               RETURNING VALUE(rv_symsgv) TYPE symsgv.
+  class-methods CALCULATE_FLIGHT_PRICE
+    importing
+      !IV_SEATS_OCCUPIED_PERCENT type ZPLANE_SEATS_OCCUPIED
+      !IV_FLIGHT_DISTANCE type ZFLIGHT_DISTANCE
+    returning
+      value(RV_PRICE) type ZFLIGHT_PRICE  ##RELAX.
+  methods LOCK_TRAVEL
+    importing
+      !IV_LOCK type ABAP_BOOL
+    raising
+      ZCX_FLIGHT_LEGACY  ##RELAX ##NEEDED.
+  methods _RESOLVE_ATTRIBUTE
+    importing
+      !IV_ATTRNAME type SCX_ATTRNAME
+      !IX type ref to ZCX_FLIGHT_LEGACY
+    returning
+      value(RV_SYMSGV) type SYMSGV .
     "! Final determinations / derivations after all levels have been prepared, e.g. bottom-up derivations
-    METHODS _determine EXPORTING et_messages           TYPE zif_flight_legacy=>tt_if_t100_message
-                       CHANGING  cs_travel             TYPE ztravel
-                                 ct_booking            TYPE zt_booking
-                                 ct_booking_supplement TYPE zt_booking_supplement.
-    METHODS _determine_travel_total_price CHANGING cs_travel             TYPE ztravel
-                                                   ct_booking            TYPE zt_booking
-                                                   ct_booking_supplement TYPE zt_booking_supplement
-                                                   ct_messages           TYPE zif_flight_legacy=>tt_if_t100_message ##NEEDED.
-    METHODS _convert_currency IMPORTING iv_currency_code_source TYPE zcurrency_code
-                                        iv_currency_code_target TYPE zcurrency_code
-                                        iv_amount               TYPE ztotal_price
-                              RETURNING VALUE(rv_amount)        TYPE ztotal_price.
+  methods _DETERMINE
+    exporting
+      !ET_MESSAGES type ZIF_FLIGHT_LEGACY=>TT_IF_T100_MESSAGE
+    changing
+      !CS_TRAVEL type ZTRAVEL
+      !CT_BOOKING type ZT_BOOKING
+      !CT_BOOKING_SUPPLEMENT type ZT_BOOKING_SUPPLEMENT .
+  methods _DETERMINE_TRAVEL_TOTAL_PRICE
+    changing
+      !CS_TRAVEL type ZTRAVEL
+      !CT_BOOKING type ZT_BOOKING
+      !CT_BOOKING_SUPPLEMENT type ZT_BOOKING_SUPPLEMENT
+      !CT_MESSAGES type ZIF_FLIGHT_LEGACY=>TT_IF_T100_MESSAGE  ##NEEDED.
+  methods _CONVERT_CURRENCY
+    importing
+      !IV_CURRENCY_CODE_SOURCE type ZCURRENCY_CODE
+      !IV_CURRENCY_CODE_TARGET type ZCURRENCY_CODE
+      !IV_AMOUNT type ZTOTAL_PRICE
+    returning
+      value(RV_AMOUNT) type ZTOTAL_PRICE .
 ENDCLASS.
 
 
 
-CLASS zcl_flight_legacy IMPLEMENTATION.
+CLASS ZCL_FLIGHT_LEGACY IMPLEMENTATION.
 
 
   METHOD calculate_flight_price.
@@ -136,6 +149,14 @@ CLASS zcl_flight_legacy IMPLEMENTATION.
     CLEAR: es_travel, et_booking, et_booking_supplement, et_messages.
 
     " Numbering mode has to be either Early or Late.
+
+    " Demo wb and cust local - Feb 9th 2025
+
+    " changes on local S4D for res with TR - final changes - changes - TR 2
+    " tR 3
+    "tr 4
+    " TEST
+
     ASSERT iv_numbering_mode EQ zif_flight_legacy=>numbering_mode-early OR
            iv_numbering_mode EQ zif_flight_legacy=>numbering_mode-late.
 
@@ -334,11 +355,13 @@ CLASS zcl_flight_legacy IMPLEMENTATION.
     et_bookingsuppl_mapping = lcl_booking_supplement_buffer=>get_instance( )->adjust_numbers( et_booking_mapping ).
   ENDMETHOD.
 
+
   METHOD save.
     lcl_travel_buffer=>get_instance( )->save( ).
     lcl_booking_buffer=>get_instance( )->save( ).
     lcl_booking_supplement_buffer=>get_instance( )->save( ).
     initialize( ).
+*    from local change s4D - test
   ENDMETHOD.
 
 
@@ -359,7 +382,7 @@ CLASS zcl_flight_legacy IMPLEMENTATION.
       APPEND NEW zcx_flight_legacy( textid = zcx_flight_legacy=>travel_no_key ) TO et_messages.
       RETURN.
     ENDIF.
-    DATA ls_travelx TYPE zs_travelx.
+    DATA ls_travelx TYPE zstravelx.
     ls_travelx = CORRESPONDING #( is_travelx ).
     ls_travelx-action_code = zif_flight_legacy=>action_code-update.
     lcl_travel_buffer=>get_instance( )->cud_prep( EXPORTING it_travel   = VALUE #( ( CORRESPONDING #( is_travel ) ) )

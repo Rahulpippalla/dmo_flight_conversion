@@ -9,4 +9,5 @@ extend view entity ZC_AgencyTP with
   @Search.defaultSearchElement: true
   @Search.fuzzinessThreshold: 0.8
   Agency.ZZZSloganZAG
+
 }

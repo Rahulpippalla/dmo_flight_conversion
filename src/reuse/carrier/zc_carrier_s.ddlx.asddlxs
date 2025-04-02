@@ -6,7 +6,8 @@
                                        label: 'Airline',
                                        value: 'AirlineID' } } }
 annotate entity ZC_Carrier_S
-  with 
+
+with
 {
   @UI.facet: [{ type: #IDENTIFICATION_REFERENCE }]
 

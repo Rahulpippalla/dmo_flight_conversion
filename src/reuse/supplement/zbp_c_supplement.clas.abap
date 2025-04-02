@@ -1,5 +1,13 @@
-CLASS zbp_c_supplement DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_supplement.
+class ZBP_C_SUPPLEMENT definition
+  public
+  for behavior of ZC_SUPPLEMENT .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_c_supplement IMPLEMENTATION.
+
+
+CLASS ZBP_C_SUPPLEMENT IMPLEMENTATION.
 ENDCLASS.

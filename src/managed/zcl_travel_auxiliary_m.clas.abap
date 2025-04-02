@@ -1,18 +1,13 @@
-CLASS zcl_travel_auxiliary_m DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_TRAVEL_AUXILIARY_M definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-  PROTECTED SECTION.
-
-  PRIVATE SECTION.
-
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
-CLASS zcl_travel_auxiliary_m IMPLEMENTATION.
 
-
+CLASS ZCL_TRAVEL_AUXILIARY_M IMPLEMENTATION.
 ENDCLASS.

@@ -138,6 +138,7 @@ CLASS ltc_travel IMPLEMENTATION.
 *
 *     gv_agency_id_unknown   = '99'.
 *     gv_customer_id_unknown = '99'.
+
     ELSE.
       DATA lt_agency_id TYPE SORTED TABLE OF zagency_id     WITH UNIQUE KEY table_line.
       SELECT DISTINCT agency_id FROM zagency     ORDER BY agency_id   DESCENDING INTO TABLE @lt_agency_id . "#EC CI_NOWHERE
@@ -154,6 +155,7 @@ CLASS ltc_travel IMPLEMENTATION.
       cl_abap_unit_assert=>assert_differs( act = gv_agency_id_1  exp = gv_agency_id_2 )." To be totally sure
 
       " Select 2 known customer IDs
+
       IF lines( lt_customer_id ) < 2.
         cl_abap_unit_assert=>abort( msg = 'No customer data!' ).
       ENDIF.

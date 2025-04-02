@@ -25,6 +25,7 @@ CLASS zcl_flight_data_generator DEFINITION
       "! @parameter iv_seats_occupied_percent | occupied seats
       "! @parameter iv_flight_distance | flight distance in kilometer
       "! @parameter rv_price | calculated flight price
+      "! changes from s4d - 1
       calculate_flight_price
         IMPORTING
           iv_seats_occupied_percent TYPE zplane_seats_occupied
@@ -36,7 +37,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_flight_data_generator IMPLEMENTATION.
+CLASS ZCL_FLIGHT_DATA_GENERATOR IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -85,17 +86,20 @@ CLASS zcl_flight_data_generator IMPLEMENTATION.
 
 
   METHOD calculate_flight_price.
+" Rahul - change 2
     rv_price = zcl_flight_legacy=>calculate_flight_price(
                  iv_seats_occupied_percent = iv_seats_occupied_percent
                  iv_flight_distance        = iv_flight_distance
                ).
   ENDMETHOD.
 
+
   METHOD reset_numberrange_interval.
 
     DATA interval_found TYPE c.
 
     TRY.
+"" RAHUL  - change 2
         cl_numberrange_intervals=>read(
           EXPORTING
             object       = numberrange_object
@@ -124,7 +128,7 @@ CLASS zcl_flight_data_generator IMPLEMENTATION.
                 subobject = subobject ).
           ENDIF.
         ENDLOOP.
-
+"" RAHUL  - Change 2
 *       Process the requested Interval
         CLEAR interval_found.
         LOOP AT intervals INTO interval.
@@ -145,7 +149,7 @@ CLASS zcl_flight_data_generator IMPLEMENTATION.
               object    = numberrange_object
               subobject = subobject ).
 
-        ELSE.  "Requested Interval exists -> Update, if required
+        ELSE.  "Requested Interval exists -> Update, if required - Pippalla
           IF interval-nrlevel NE 0.
             interval-nrlevel = 0.
             interval-procind = 'U'.
@@ -192,5 +196,4 @@ CLASS zcl_flight_data_generator IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.

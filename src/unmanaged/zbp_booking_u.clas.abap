@@ -1,15 +1,13 @@
-CLASS zbp_booking_u DEFINITION
-  PUBLIC
-  ABSTRACT
-  FINAL
-  FOR BEHAVIOR OF zi_travel_u .
+class ZBP_BOOKING_U definition
+  public
+  for behavior of ZI_TRAVEL_U .
 
-  PUBLIC SECTION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zbp_booking_u IMPLEMENTATION.
+CLASS ZBP_BOOKING_U IMPLEMENTATION.
 ENDCLASS.

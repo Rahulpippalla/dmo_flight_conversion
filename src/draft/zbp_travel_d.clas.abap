@@ -1,5 +1,13 @@
-CLASS zbp_travel_d DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_travel_d.
+class ZBP_TRAVEL_D definition
+  public
+  for behavior of ZR_TRAVEL_D .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_travel_d IMPLEMENTATION.
+
+
+CLASS ZBP_TRAVEL_D IMPLEMENTATION.
 ENDCLASS.

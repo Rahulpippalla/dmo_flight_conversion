@@ -14,12 +14,12 @@ ENDCLASS.
 
 
 
-CLASS zcl_data_generator_draft IMPLEMENTATION.
+CLASS ZCL_DATA_GENERATOR_DRAFT IMPLEMENTATION.
 
 
   METHOD zif_data_generation_badi~data_generation.
     " Travels
-    out->write( ' --> ZATRAVEL_D' ).
+    out->write( ' --> ZA_TRAVEL_D' ).
 
     DELETE FROM zdtravel_d.                        "#EC CI_NOWHERE
     DELETE FROM zatravel_d.                        "#EC CI_NOWHERE
@@ -49,10 +49,10 @@ CLASS zcl_data_generator_draft IMPLEMENTATION.
     ).
 
 
-    " bookings
-    out->write( ' --> ZABOOKING_D' ).
+    " bookings rahul
+    out->write( ' --> ZA_BOOKING_D' ).
 
-    DELETE FROM ZDBOOKING_D.                       "#EC CI_NOWHERE
+    DELETE FROM zdbooking_d.                       "#EC CI_NOWHERE
     DELETE FROM zabooking_d.                       "#EC CI_NOWHERE
 
     INSERT zabooking_d FROM (
@@ -79,9 +79,9 @@ CLASS zcl_data_generator_draft IMPLEMENTATION.
 
 
     " Booking supplements
-    out->write( ' --> ZABKSUPPL_D' ).
+    out->write( ' --> ZA_BKSUPPL_D' ).
 
-    DELETE FROM ZDBKSUPPL_D.                       "#EC CI_NOWHERE
+    DELETE FROM zdbksuppl_d.                       "#EC CI_NOWHERE
     DELETE FROM zabksuppl_d.                       "#EC CI_NOWHERE
 
     INSERT zabksuppl_d FROM (
@@ -103,6 +103,4 @@ CLASS zcl_data_generator_draft IMPLEMENTATION.
     ).
 
   ENDMETHOD.
-
-
 ENDCLASS.

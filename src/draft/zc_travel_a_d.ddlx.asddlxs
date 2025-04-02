@@ -1,12 +1,11 @@
 @Metadata.layer: #CORE
 
-@UI: { headerInfo: { typeName: 'Travel', 
-                     typeNamePlural: 'Travels', 
+@UI: { headerInfo: { typeName: 'Travel',
+                     typeNamePlural: 'Travels',
                      title: { type: #STANDARD, value: 'TravelID' } },
        presentationVariant: [{ sortOrder: [{ by: 'TravelID', direction: #DESC }] }] }
-       
-annotate entity ZC_Travel_A_D
-  with 
+
+annotate entity zc_travel_a_d with
 {
   @UI.facet: [{ id:            'Travel',
                 purpose:       #STANDARD,
@@ -20,61 +19,62 @@ annotate entity ZC_Travel_A_D
                 position:      20,
                 targetElement: '_Booking'}]
   @UI.hidden: true
-  TravelUUID;
-  
+  traveluuid;
+
   @UI: { lineItem:       [ { position: 10, importance: #HIGH },
-                           { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' }, 
-                           { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }, 
+                           { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' },
+                           { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' },
                            { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Deduct Discount', invocationGrouping: #CHANGE_SET } ],
          identification: [ { position: 10, label: 'Travel ID' },
                            { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' },
-                           { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }, 
+                           { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' },
                            { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Deduct Discount' } ],
-         selectionField: [ { position: 10 } ] }  
-  TravelID;
+         selectionField: [ { position: 10 } ] }
+  travelid;
 
   @UI: { lineItem:       [ { position: 20, importance: #HIGH } ] ,
          identification: [ { position: 20 } ],
-         selectionField: [ { position: 20 } ] } 
-  AgencyID;
+         selectionField: [ { position: 20 } ] }
+  agencyid;
 
   @UI: { lineItem:       [ { position: 30, importance: #HIGH } ] ,
          identification: [ { position: 30 } ],
-         selectionField: [ { position: 30 } ] }  
-  CustomerID;
+         selectionField: [ { position: 30 } ] }
+  customerid;
 
   @UI: { lineItem:       [ { position: 40, importance: #MEDIUM } ] ,
-         identification: [ { position: 40 } ] }  
-  BeginDate;
+         identification: [ { position: 40 } ] }
+  begindate;
 
   @UI: { lineItem:       [ { position: 50, importance: #MEDIUM } ] ,
-         identification: [ { position: 50 } ] }  
-  EndDate;
-  
+         identification: [ { position: 50 } ] }
+  enddate;
+
   @UI: { lineItem:       [ { position: 60, importance: #MEDIUM } ] ,
-         identification: [ { position: 60 } ] }  
-  BookingFee;
+         identification: [ { position: 60 } ] }
+  bookingfee;
 
   @UI: { lineItem:       [ { position: 70, importance: #MEDIUM } ] ,
-         identification: [ { position: 70 } ] }  
-  TotalPrice;
-  
-//  CurrencyCode;
-  
+         identification: [ { position: 70 } ] }
+  totalprice;
+
+  //  CurrencyCode;
+
   @UI: { lineItem:       [ { position: 90, importance: #MEDIUM } ] ,
-         identification: [ { position: 90 } ] }  
-  Description;
-  
+         identification: [ { position: 90 } ] }
+  description;
+
   @UI: { lineItem:       [ { position: 99, importance: #HIGH } ] ,
-         identification: [ { position: 99, label: 'Status' } ], 
-         selectionField: [ { position: 40 } ] ,   
+         identification: [ { position: 99, label: 'Status' } ],
+         selectionField: [ { position: 40 } ] ,
          textArrangement: #TEXT_ONLY }
-  OverallStatus;
-  
+  overallstatus;
+
   @UI.hidden: true
-  OverallStatusText;
-   
+  overallstatustext;
+
   @UI.hidden: true
-  LocalLastChangedAt;
-  
-  }
+  locallastchangedat;
+
+
+}

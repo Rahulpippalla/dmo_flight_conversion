@@ -65,8 +65,8 @@ INTERFACE zif_flight_legacy
 **********************************************************************
 
   " Internally we use the full X-structures: With complete key and action code
-  TYPES ts_travelx TYPE zs_travelx.
-  TYPES tt_travelx TYPE zt_travelx.
+  TYPES ts_travelx TYPE zstravelx.
+  TYPES tt_travelx TYPE zttravelx.
 
   TYPES ts_bookingx TYPE zsbookingx.
   TYPES tt_bookingx TYPE zt_bookingx.
@@ -142,9 +142,9 @@ INTERFACE zif_flight_legacy
   "! INcoming flag structure of the node Booking.  It contains key and the bit flag to the corresponding fields.<br/>
   "! The BAPI like function modules always refer to a single travel.
   "! Therefore the Travel ID is not required in the subnode tables.
-  TYPES ts_booking_inx TYPE zsbooking_intx.
+  TYPES ts_booking_inx TYPE zsbooking_inx.
   "! INcoming flag table type of the node Booking.  It contains key and the bit flag to the corresponding fields.
-  TYPES tt_booking_inx TYPE zt_booking_inx.
+  TYPES tt_booking_inx TYPE ztbooking_inx.
 
   "! INcoming flag structure of the node Booking Supplement.  It contains key and the bit flag to the corresponding fields.<br/>
   "! The BAPI like function modules always refer to a single travel.

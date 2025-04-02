@@ -1,13 +1,14 @@
-@Metadata.layer: #CORE 
+@Metadata.layer: #CORE
 
 @UI: { headerInfo: { typeName:       'Booking Supplement',
                      typeNamePlural: 'Booking Supplements',
                      title:          { type: #STANDARD,
                                        label: 'Booking Supplement',
                                        value: 'BookingSupplementID' } } }
-                                       
-annotate entity ZC_BookingSupplement_A_D
-  with 
+
+annotate entity zc_bookingsupplement_a_d
+
+with
 {
   @UI.facet: [ { id:              'BookingSupplement',
                  purpose:         #STANDARD,
@@ -15,27 +16,27 @@ annotate entity ZC_BookingSupplement_A_D
                  label:           'Booking Supplement',
                  position:        10 }  ]
   @UI.hidden:true
-  BookSupplUUID;
+  booksuppluuid;
   @UI.hidden:true
-  BookingUUID;
+  bookinguuid;
   @UI.hidden:true
-  TravelUUID;
+  traveluuid;
 
 
   @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
          identification: [ { position: 10 } ] }
-  BookingSupplementID;
+  bookingsupplementid;
 
   @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
          identification: [ { position: 20 } ] }
-  SupplementID;
+  supplementid;
 
   @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
          identification: [ { position: 30 } ] }
-  BookSupplPrice;
+  booksupplprice;
 
-//  CurrencyCode;
-  
+  //  CurrencyCode;
+
   @UI.hidden: true
-  LocalLastChangedAt;
+  locallastchangedat;
 }

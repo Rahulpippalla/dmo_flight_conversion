@@ -13,7 +13,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_data_generator_managed IMPLEMENTATION.
+CLASS ZCL_DATA_GENERATOR_MANAGED IMPLEMENTATION.
+
 
   METHOD zif_data_generation_badi~data_generation.
 
@@ -48,14 +49,14 @@ CLASS zcl_data_generator_managed IMPLEMENTATION.
       IF <travel>-travel_id > max_travel_id.  max_travel_id = <travel>-travel_id.  ENDIF.
     ENDLOOP.
 
-    out->write( ' --> ZTRAVEL_M' ) ##NO_TEXT.
+    out->write( ' --> zTRAVEL_M' ) ##NO_TEXT.
     DELETE FROM ztravel_m.                          "#EC CI_NOWHERE
     INSERT ztravel_m FROM TABLE @lt_travel_m.
 
     out->write( ' --> Set up Number Range Interval' ) ##NO_TEXT.
     CONSTANTS:
       cv_numberrange_interval TYPE cl_numberrange_runtime=>nr_interval VALUE '01',
-      cv_numberrange_object   TYPE cl_numberrange_runtime=>nr_object   VALUE 'ZTRV_M' ##NO_TEXT,
+      cv_numberrange_object   TYPE cl_numberrange_runtime=>nr_object   VALUE 'zTRV_M' ##NO_TEXT,
       cv_fromnumber           TYPE cl_numberrange_intervals=>nr_nriv_line-fromnumber VALUE '00000001',
       cv_tonumber             TYPE cl_numberrange_intervals=>nr_nriv_line-tonumber   VALUE '99999999'.
 
@@ -85,7 +86,7 @@ CLASS zcl_data_generator_managed IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
 
-    out->write( ' --> ZBOOKING_M' ) ##NO_TEXT.
+    out->write( ' --> zBOOKING_M' ) ##NO_TEXT.
     DELETE FROM zbooking_m.                         "#EC CI_NOWHERE
     INSERT zbooking_m FROM TABLE @lt_booking_m.
 
@@ -100,10 +101,13 @@ CLASS zcl_data_generator_managed IMPLEMENTATION.
                                                   MAPPING last_changed_at = lastchangedat
                                                           EXCEPT * ).
 
-    out->write( ' --> ZBOOKSUPPL_M' ) ##NO_TEXT.
+
+
+    out->write( ' --> zBOOKSUPPL_M' ) ##NO_TEXT.
     DELETE FROM zbooksuppl_m.                       "#EC CI_NOWHERE
     INSERT zbooksuppl_m FROM TABLE @lt_booksuppl_m.
 
-  ENDMETHOD.
 
+
+  ENDMETHOD.
 ENDCLASS.

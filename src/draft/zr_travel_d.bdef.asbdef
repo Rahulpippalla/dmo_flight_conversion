@@ -70,7 +70,7 @@ etag master LocalLastChangedAt
 define behavior for ZRBooking_D alias Booking
 implementation in class zbp_booking_d unique
 persistent table zabooking_d
-draft table ZDBOOKING_D
+draft table zdbooking_d
 lock dependent by _Travel
 authorization dependent by _Travel
 etag master LocalLastChangedAt
@@ -112,7 +112,7 @@ etag master LocalLastChangedAt
 define behavior for ZR_BookingSupplement_D alias BookingSupplement
 implementation in class zbp_bookingsupplement_d unique
 persistent table zabksuppl_d
-draft table ZDBKSUPPL_D
+draft table zdbksuppl_d
 lock dependent by _Travel
 authorization dependent by _Travel
 etag master LocalLastChangedAt

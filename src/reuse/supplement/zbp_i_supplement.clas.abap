@@ -1,5 +1,13 @@
-CLASS zbp_i_supplement DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_supplement.
+class ZBP_I_SUPPLEMENT definition
+  public
+  for behavior of ZI_SUPPLEMENT .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_i_supplement IMPLEMENTATION.
+
+
+CLASS ZBP_I_SUPPLEMENT IMPLEMENTATION.
 ENDCLASS.

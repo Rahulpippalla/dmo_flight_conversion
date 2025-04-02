@@ -1,11 +1,10 @@
 @Metadata.layer: #CORE
 
 @UI: { headerInfo: { typeName: 'Manage Carriers',
-                     typeNamePlural: 'Carrier Singleton', 
+                     typeNamePlural: 'Carrier Singleton',
                      title: { type: #STANDARD, value: 'CarrierSingletonID' } } }
 
-annotate entity ZC_CarriersLockSingleton_S
-  with 
+annotate entity ZC_CarriersLockSingleton_S with
 {
   @UI.facet: [
 
@@ -14,10 +13,11 @@ annotate entity ZC_CarriersLockSingleton_S
     type:     #LINEITEM_REFERENCE,
     label:    'Carrier Multi Inline Edit',
     position: 10,
-    targetElement: '_Airline' 
+    targetElement: '_Airline'
   }
   ]
 
   @UI.lineItem: [{ position: 10 }]
   CarrierSingletonID;
+
 }

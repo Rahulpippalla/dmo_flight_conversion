@@ -12,7 +12,6 @@
     <FIXPT>X</FIXPT>
     <UNICODE>5</UNICODE>
     <CLSDEFINT>ZR_TRAVEL_D</CLSDEFINT>
-    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
   </asx:values>
  </asx:abap>

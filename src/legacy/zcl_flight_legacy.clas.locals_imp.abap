@@ -1299,7 +1299,7 @@ CLASS lcl_travel_buffer DEFINITION FINAL CREATE PRIVATE FRIENDS ltc_travel.
     "! @parameter iv_no_delete_check | In some cases we do not need to check the existence of a record to be deleted, as this check has been done before.
     "!                               | E.g. delete all subnodes of a node to be deleted.  In this case we have read the subnodes to get their keys.
     METHODS cud_prep IMPORTING it_travel          TYPE zt_travel
-                               it_travelx         TYPE zt_travelx
+                               it_travelx         TYPE zttravelx
                                iv_no_delete_check TYPE abap_bool OPTIONAL
                                iv_numbering_mode  TYPE zif_flight_legacy=>t_numbering_mode DEFAULT zif_flight_legacy=>numbering_mode-early
                      EXPORTING et_travel          TYPE zt_travel
@@ -1334,7 +1334,7 @@ CLASS lcl_travel_buffer DEFINITION FINAL CREATE PRIVATE FRIENDS ltc_travel.
                     EXPORTING et_travel         TYPE zt_travel
                               et_messages       TYPE zif_flight_legacy=>tt_if_t100_message.
     METHODS _update IMPORTING it_travel   TYPE zt_travel
-                              it_travelx  TYPE zt_travelx
+                              it_travelx  TYPE zttravelx
                     EXPORTING et_travel   TYPE zt_travel
                               et_messages TYPE zif_flight_legacy=>tt_if_t100_message.
     METHODS _delete IMPORTING it_travel          TYPE zt_travel
@@ -1342,32 +1342,32 @@ CLASS lcl_travel_buffer DEFINITION FINAL CREATE PRIVATE FRIENDS ltc_travel.
                     EXPORTING et_messages        TYPE zif_flight_legacy=>tt_if_t100_message.
 
     METHODS _check IMPORTING is_travel          TYPE ztravel
-                             is_travelx         TYPE zs_travelx OPTIONAL
+                             is_travelx         TYPE zstravelx OPTIONAL
                              iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                    CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                    RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_agency IMPORTING is_travel          TYPE ztravel
-                                    is_travelx         TYPE zs_travelx OPTIONAL
+                                    is_travelx         TYPE zstravelx OPTIONAL
                                     iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                           CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                           RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_customer IMPORTING is_travel          TYPE ztravel
-                                      is_travelx         TYPE zs_travelx OPTIONAL
+                                      is_travelx         TYPE zstravelx OPTIONAL
                                       iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                             CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                             RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_dates IMPORTING is_travel          TYPE ztravel
-                                   is_travelx         TYPE zs_travelx OPTIONAL
+                                   is_travelx         TYPE zstravelx OPTIONAL
                                    iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                          CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                          RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_status IMPORTING is_travel          TYPE ztravel
-                                    is_travelx         TYPE zs_travelx OPTIONAL
+                                    is_travelx         TYPE zstravelx OPTIONAL
                                     iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                           CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                           RETURNING VALUE(rv_is_valid) TYPE abap_bool.
     METHODS _check_currency_code IMPORTING is_travel          TYPE ztravel
-                                           is_travelx         TYPE zs_travelx OPTIONAL
+                                           is_travelx         TYPE zstravelx OPTIONAL
                                            iv_change_mode     TYPE zcl_flight_legacy=>ty_change_mode
                                  CHANGING  ct_messages        TYPE zif_flight_legacy=>tt_if_t100_message
                                  RETURNING VALUE(rv_is_valid) TYPE abap_bool.
@@ -1791,7 +1791,7 @@ CLASS lcl_travel_buffer IMPLEMENTATION.
     DATA lt_travel_c  TYPE zt_travel.
     DATA lt_travel_u  TYPE zt_travel.
     DATA lt_travel_d  TYPE zt_travel.
-    DATA lt_travelx_u TYPE zt_travelx.
+    DATA lt_travelx_u TYPE zttravelx.
     LOOP AT it_travel ASSIGNING FIELD-SYMBOL(<s_travel>).
       READ TABLE it_travelx ASSIGNING FIELD-SYMBOL(<s_travelx>) WITH TABLE KEY travel_id = <s_travel>-travel_id.
       IF sy-subrc <> 0.

@@ -5,6 +5,7 @@
                      title: { type: #STANDARD, label: 'Booking Supplement', value: 'BookingSupplementID' } } }
 
 annotate view ZC_BookingSupplement_U with
+
 {
   @UI.facet: [ { id:            'BookingSupplement',
                  purpose:       #STANDARD,
@@ -17,12 +18,12 @@ annotate view ZC_BookingSupplement_U with
                   targetQualifier: 'Price',
                   label:           'Price',
                   position:        20 } ]
-                  
- 
+
+
   @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
          identification: [ { position: 10 } ] }
   BookingSupplementID;
- 
+
   @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
          identification: [ { position: 20 } ] }
   SupplementID;

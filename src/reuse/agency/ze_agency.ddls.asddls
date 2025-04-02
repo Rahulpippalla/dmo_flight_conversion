@@ -14,7 +14,6 @@
 }
 
 
-
 define view entity ZE_Agency
   as select from zagency as Agency
 {

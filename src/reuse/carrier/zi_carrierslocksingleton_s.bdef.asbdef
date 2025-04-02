@@ -28,7 +28,7 @@ authorization master ( global )
 
 define behavior for ZI_Carrier_S alias Carrier
 persistent table zcarrier
-draft table ZDCARRIER
+draft table zdcarrier
 lock dependent by _CarrierSingleton
 authorization dependent by _CarrierSingleton
 etag master LocalLastChangedAt

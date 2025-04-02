@@ -1,5 +1,13 @@
-CLASS zbp_r_agencytp DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_agencytp.
+class ZBP_R_AGENCYTP definition
+  public
+  for behavior of ZR_AGENCYTP .
+
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zbp_r_agencytp IMPLEMENTATION.
+
+
+CLASS ZBP_R_AGENCYTP IMPLEMENTATION.
 ENDCLASS.
