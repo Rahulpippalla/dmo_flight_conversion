@@ -181,7 +181,7 @@ CLASS lsc_r_agency IMPLEMENTATION.
           FIELDS ( emailaddress ) WITH CORRESPONDING #( create-zzz_review )
         RESULT DATA(agencies).
 
-      RAISE ENTITY EVENT zi_agencytp~zagencyreviewcreated
+      RAISE ENTITY EVENT zi_agencytp~zzagencyreviewcreated
         FROM VALUE #(
           FOR review IN create-zzz_review (
               agencyid        = review-agencyid

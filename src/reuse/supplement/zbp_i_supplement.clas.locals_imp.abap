@@ -1,7 +1,7 @@
-class ltc_supplement DEFINITION DEFERRED FOR TESTING.
+*class ltc_supplement DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_Supplement DEFINITION
   INHERITING FROM cl_abap_behavior_handler
-  FRIENDS ltc_supplement
+*  FRIENDS ltc_supplement
   .
 
   PRIVATE SECTION.

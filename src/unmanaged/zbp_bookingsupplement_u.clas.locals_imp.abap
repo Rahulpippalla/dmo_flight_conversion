@@ -1,7 +1,7 @@
-class ltcl_handler DEFINITION DEFERRED for TESTING.
+*class ltcl_handler DEFINITION DEFERRED for TESTING.
 CLASS lhc_bookingsupplement DEFINITION
   INHERITING FROM cl_abap_behavior_handler
-  FRIENDS ltcl_handler
+*  FRIENDS ltcl_handler
   .
   PRIVATE SECTION.
 

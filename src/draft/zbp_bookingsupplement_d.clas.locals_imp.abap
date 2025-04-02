@@ -1,7 +1,7 @@
-CLASS ltc_BookingSupplement DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_BookingSupplement DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_BookingSupplement DEFINITION INHERITING FROM cl_abap_behavior_handler
- FRIENDS ltc_BookingSupplement.
-
+* FRIENDS ltc_BookingSupplement.
+.
   PRIVATE SECTION.
 
     METHODS setBookSupplNumber FOR DETERMINE ON SAVE

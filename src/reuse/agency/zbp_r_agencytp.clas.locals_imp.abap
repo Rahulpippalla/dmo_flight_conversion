@@ -1,7 +1,7 @@
-CLASS ltc_agency_handler DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_agency_handler DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_Agency DEFINITION
   INHERITING FROM cl_abap_behavior_handler
-  FRIENDS ltc_agency_handler
+*  FRIENDS ltc_agency_handler
   .
 
   PUBLIC SECTION.
@@ -135,10 +135,11 @@ CLASS lhc_Agency IMPLEMENTATION.
 
 ENDCLASS.
 
-CLASS ltc_agency_saver DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_agency_saver DEFINITION DEFERRED FOR TESTING.
 CLASS lsc_Agency DEFINITION
   INHERITING FROM cl_abap_behavior_saver
-  FRIENDS ltc_agency_saver.
+*  FRIENDS ltc_agency_saver.
+.
   PROTECTED SECTION.
     METHODS adjust_numbers REDEFINITION.
 ENDCLASS.

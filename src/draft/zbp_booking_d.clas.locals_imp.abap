@@ -1,6 +1,7 @@
-CLASS ltc_booking DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_booking DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_booking DEFINITION INHERITING FROM cl_abap_behavior_handler
- FRIENDS ltc_booking.
+* FRIENDS ltc_booking.
+.
 
   PRIVATE SECTION.
     CONSTANTS:

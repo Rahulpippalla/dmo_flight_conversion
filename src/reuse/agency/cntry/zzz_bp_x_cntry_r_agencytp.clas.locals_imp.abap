@@ -18,15 +18,15 @@ CLASS lhc_Agency DEFINITION INHERITING FROM cl_abap_behavior_handler
   PRIVATE SECTION.
 
     METHODS validateDiallingCode FOR VALIDATE ON SAVE
-      IMPORTING keys FOR ZAgency~ZvalidateDiallingCode.
+      IMPORTING keys FOR ZAgency~ZZvalidateDiallingCode.
     METHODS determineCountryCode FOR DETERMINE ON MODIFY
-      IMPORTING keys FOR ZAgency~ZdetermineCountryCode.
+      IMPORTING keys FOR ZAgency~ZZdetermineCountryCode.
     METHODS determineDiallingCode FOR DETERMINE ON MODIFY
-      IMPORTING keys FOR ZAgency~ZdetermineDiallingCode.
+      IMPORTING keys FOR ZAgency~ZZdetermineDiallingCode.
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR ZAgency RESULT result.
     METHODS createFromTemplate FOR MODIFY
-      IMPORTING keys FOR ACTION ZAgency~ZcreateFromTemplate.
+      IMPORTING keys FOR ACTION ZAgency~ZZcreateFromTemplate.
 
 ENDCLASS.
 

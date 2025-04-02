@@ -1,6 +1,7 @@
-CLASS ltc_travel DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_travel DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_travel DEFINITION INHERITING FROM cl_abap_behavior_handler
- FRIENDS ltc_travel.
+* FRIENDS ltc_travel.
+.
 
   PRIVATE SECTION.
 

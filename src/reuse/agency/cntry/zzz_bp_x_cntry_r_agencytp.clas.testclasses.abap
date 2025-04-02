@@ -303,7 +303,7 @@ CLASS ltcl_agency IMPLEMENTATION.
       result                   TYPE STRUCTURE FOR GLOBAL AUTHORIZATION RESULT zi_agencytp\\zagency,
       reported                 TYPE RESPONSE  FOR REPORTED EARLY zi_agencytp.
 
-    requested_authorizations-%action-zcreatefromtemplate = if_abap_behv=>mk-on.
+    requested_authorizations-%action-zzcreatefromtemplate = if_abap_behv=>mk-on.
 
     class_under_test->get_global_authorizations(
       EXPORTING

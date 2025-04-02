@@ -1,7 +1,7 @@
-CLASS ltcl_handler DEFINITION DEFERRED FOR TESTING.
+*CLASS ltcl_handler DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_travel DEFINITION
    INHERITING FROM cl_abap_behavior_handler
-   FRIENDS ltcl_handler
+*   FRIENDS ltcl_handler
    .
 
   PRIVATE SECTION.
@@ -573,10 +573,10 @@ ENDCLASS.
 * Saver class implements the save sequence for data persistence
 *
 **********************************************************************
-CLASS ltcl_saver DEFINITION DEFERRED FOR TESTING.
+*CLASS ltcl_saver DEFINITION DEFERRED FOR TESTING.
 CLASS lsc_I_TRAVEL_U DEFINITION
   INHERITING FROM cl_abap_behavior_saver
-  FRIENDS ltcl_saver
+*  FRIENDS ltcl_saver
   .
 
   PROTECTED SECTION.

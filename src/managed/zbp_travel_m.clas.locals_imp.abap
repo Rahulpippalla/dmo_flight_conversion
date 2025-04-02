@@ -1,8 +1,9 @@
-CLASS ltc_managed DEFINITION DEFERRED FOR TESTING.
-CLASS ltc_travl_not_in_documentation DEFINITION DEFERRED FOR TESTING.
-CLASS test_using_entity_stub  DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_managed DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_travl_not_in_documentation DEFINITION DEFERRED FOR TESTING.
+*CLASS test_using_entity_stub  DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_travel DEFINITION INHERITING FROM cl_abap_behavior_handler
-  FRIENDS ltc_managed test_using_entity_stub ltc_travl_not_in_documentation.
+*  FRIENDS ltc_managed test_using_entity_stub ltc_travl_not_in_documentation.
+.
 
   PRIVATE SECTION.
 
@@ -567,10 +568,10 @@ ENDCLASS.
 
 
 
-CLASS ltc_save_not_in_documentation DEFINITION DEFERRED FOR TESTING.
+*CLASS ltc_save_not_in_documentation DEFINITION DEFERRED FOR TESTING.
 CLASS lcl_save DEFINITION INHERITING FROM cl_abap_behavior_saver
-  FRIENDS ltc_save_not_in_documentation.
-
+*  FRIENDS ltc_save_not_in_documentation.
+.
   PROTECTED SECTION.
     METHODS save_modified REDEFINITION.
 

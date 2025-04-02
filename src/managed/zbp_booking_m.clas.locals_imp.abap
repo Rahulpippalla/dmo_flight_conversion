@@ -1,6 +1,7 @@
-class ltcl_booking DEFINITION DEFERRED FOR TESTING.
+*class ltcl_booking DEFINITION DEFERRED FOR TESTING.
 CLASS lhc_booking DEFINITION INHERITING FROM cl_abap_behavior_handler
-  FRIENDS ltcl_booking.
+*  FRIENDS ltcl_booking.
+.
   PRIVATE SECTION.
 
     METHODS calculatetotalprice FOR DETERMINE ON MODIFY
